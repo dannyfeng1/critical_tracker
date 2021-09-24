@@ -11,7 +11,21 @@
     "react-redux": "^7.2.5",
     "react-router-dom": "^5.3.0",
     "redux": "^4.1.1",
+    "redux-thunk": "^2.3.0",
     "webpack": "^5.54.0",
     "webpack-cli": "^4.8.0"
-  }
+  },
+  "devDependencies": {
+    "redux-logger": "^3.0.6"
+  },
+  "engines": {
+    "node": "10.13.0",
+    "npm": "6.4.1"
+  },
+  "scripts": {
+    "postinstall": "webpack",
+    "webpack": "webpack --watch --mode=development"
+  },
+  "author": "",
+  "license": "ISC"
 }
