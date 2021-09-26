@@ -2,7 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #root {
-  background-color: blue;
-  height: 500px;
-  width: 500px;
+  // 
+}
+
+#nav-bar {
+  display: flex;
+  border: 1px solid black;
+}
+
+#nav-bar > div {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: ;
 }
