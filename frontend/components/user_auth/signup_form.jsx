@@ -36,8 +36,8 @@ class SignUpForm extends React.Component {
         <h1>Sign Up</h1>
         <form className="user-form" onSubmit={this.handleSubmit}>
           <input placeholder="Email" onChange={this.update("email")} type="text" value={email} />
-          <input placeholder="Password" onChange={this.update("password")}type="password" value={password} />
           <input placeholder="Username" onChange={this.update("username")}type="text" value={username} />
+          <input placeholder="Password" onChange={this.update("password")}type="password" value={password} />
           <input placeholder="First Name" onChange={this.update("first_name")}type="text" value={first_name} />
           <input placeholder="Last Name" onChange={this.update("last_name")}type="text" value={last_name} />
           <ul className="errors">
