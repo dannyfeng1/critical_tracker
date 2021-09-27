@@ -7,12 +7,14 @@
 
 #nav-bar {
   display: flex;
+  flex-direction: row;
+  align-items: center;
   border: 1px solid black;
+  justify-content: space-between;
 }
 
 #nav-bar > div {
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  justify-content: ;
+  display: inline-flex;
+  align-items: center;
+  // justify-content: 
 }

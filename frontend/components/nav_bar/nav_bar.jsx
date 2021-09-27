@@ -1,36 +1,42 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
 
 class NavBar extends React.Component {
   
   render() {
     let { currentUser, logout } = this.props;
-    console.log(currentUser)
 
-    let buttons;
+    let buttons = null;
+    let searchBar = null;
+    let dashboard = null;
     if (currentUser) {
       buttons = (
         <div>
-          <p>{currentUser.first_name + " " + currentUser.last_name}</p>
+          <p>{currentUser.username}</p>
           <button onClick={() => logout()}>Log Out</button>
         </div>
       )
-    } else {
-      buttons = (
-        <div>
-          <button onClick={() => this.props.history.push('/signup')}>Sign Up</button>
-          <button onClick={() => this.props.history.push('/login')}>Log In</button>
-        </div>
+      searchBar = (
+        <p>Search Bar</p>
+      )
+      dashboard = (
+        <p>Dashboard</p>
       )
     }
     return (
     <header id="nav-bar">
-      <img src="https://cdn0.iconfinder.com/data/icons/esports-wildberry-vol-1/256/Critical_Damage-512.png" height="50px" width="50px" alt="" />
       <div>
-        <p>Dashboard</p>
-        <p>Search Bar</p>
-        {buttons}
+        <Link to="/">
+          <img src="https://cdn0.iconfinder.com/data/icons/esports-wildberry-vol-1/256/Critical_Damage-512.png" height="25px" width="25px" alt="" />
+        </Link>
+        <Link to="/">
+          <p>CriticalTracker</p>
+        </Link>
       </div>
+      {dashboard}
+      {searchBar}
+      {buttons}
     </header>
     )
   }
