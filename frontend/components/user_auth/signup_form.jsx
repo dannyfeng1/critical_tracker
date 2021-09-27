@@ -44,6 +44,7 @@ class SignUpForm extends React.Component {
             {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
           </ul>
           <button>Sign Up</button>
+          <button onClick={() => this.props.history.push("/demo")}>Demo</button>
           <Link to="/login">Log In</Link>
         </form>
       </div>

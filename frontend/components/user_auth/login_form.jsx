@@ -33,10 +33,11 @@ class LogInForm extends React.Component {
         <form className="user-form" onSubmit={this.handleSubmit}>
           <input placeholder="Username" onChange={this.update("username")}type="text" value={username} />
           <input placeholder="Password" onChange={this.update("password")}type="password" value={password} />
-          <button>Log In</button>
           <ul className="errors">
             {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
           </ul>
+          <button>Log In</button>
+          <button onClick={() => this.props.history.push("/demo")}>Demo</button>
           <Link to="/signup">Sign Up</Link>
         </form>
       </div>
