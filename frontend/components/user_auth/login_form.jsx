@@ -12,7 +12,7 @@ class LogInForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.login(this.state)
-      // .then(this.props.history.push("/"))
+      .then(this.props.history.push("/dashboard"))
   }
 
   update(field) {
@@ -29,7 +29,7 @@ class LogInForm extends React.Component {
 
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form id="signup-form" onSubmit={this.handleSubmit}>
           <label>Username:
             <input onChange={this.update("username")}type="text" value={username} />
           </label>

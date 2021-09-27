@@ -18,7 +18,7 @@ class SignUpForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.signup(this.state)
-      // .then(this.props.history.push("/"))
+      .then(() => this.props.history.push("/dashboard"))
   }
 
   componentWillUnmount() {
@@ -33,7 +33,7 @@ class SignUpForm extends React.Component {
     let { email, password, username, first_name, last_name} = this.state;
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form id="signup-form" onSubmit={this.handleSubmit}>
           <label>Email:
             <input onChange={this.update("email")}type="text" value={email} />
           </label>
