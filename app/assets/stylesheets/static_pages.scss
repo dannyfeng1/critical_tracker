@@ -2,14 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #root {
-  // 
+  background-color: rgb(201, 223, 236);
 }
 
 #nav-bar {
   display: flex;
   flex-direction: row;
+  width: 100%;
   align-items: center;
-  border: 1px solid black;
+  background-color: #256188;
   justify-content: space-between;
 }
 
@@ -19,17 +20,84 @@
   // justify-content: 
 }
 
-#signup-form {
+#signup-container h1{
+  padding-top: 1%;
+  font-size: xx-large;
+  text-align: center;
+  justify-content: center;
+}
+
+#login-container h1{
+  padding-top: 1%;
+  text-align: center;
+  font-size: xx-large;
+  justify-content: center;
+}
+
+.user-form {
+  padding-top: 1%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-#signup-form {
+.user-form input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 
+.user-form button {
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 400 !important;
+  background-color: rgba(228, 159, 55, 0.911);
+  color: #fff;
+  padding: 5px 5px;
+  margin: 1%;
+  text-align: center;
+  border: 0px;
+  cursor: pointer;
+  transition: all 0.3s 0s ease-in-out;
+}
+
+.user-form button:hover {
+  transform: scale(1.04, 1);
+  background-color: rgb(226, 178, 105);
+  text-decoration: none;
+}
+
+#signup-login {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1%;
+  align-items: center;
 }
 
 #signup-login button {
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: 400 !important;
+  background-color: rgba(228, 159, 55, 0.911);
+  color: #fff;
+  padding: 5px 5px;
+  margin: 1%;
+  text-align: center;
+  border: 0px;
+  width: 20%;
+  cursor: pointer;
+  transition: all 0.3s 0s ease-in-out;
+}
 
+#signup-login button:hover {
+  transform: scale(1.04, 1);
+  background-color: rgb(226, 178, 105);
+  text-decoration: none;
+}
+
+.errors {
+  color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

@@ -28,20 +28,17 @@ class LogInForm extends React.Component {
     let { username, password} = this.state;
 
     return (
-      <div>
-        <form id="signup-form" onSubmit={this.handleSubmit}>
-          <label>Username:
-            <input onChange={this.update("username")}type="text" value={username} />
-          </label>
-          <label>Password:
-            <input onChange={this.update("password")}type="password" value={password} />
-          </label>
+      <div id="login-container">
+        <h1>Log In</h1>
+        <form className="user-form" onSubmit={this.handleSubmit}>
+          <input placeholder="Username" onChange={this.update("username")}type="text" value={username} />
+          <input placeholder="Password" onChange={this.update("password")}type="password" value={password} />
           <button>Log In</button>
+          <ul className="errors">
+            {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
+          </ul>
           <Link to="/signup">Sign Up</Link>
         </form>
-        <div className="errors">
-          {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
-        </div>
       </div>
     )
   }
