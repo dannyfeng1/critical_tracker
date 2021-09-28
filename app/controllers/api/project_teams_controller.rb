@@ -1,5 +1,6 @@
 class Api::ProjectTeamsController < ApplicationController
   def index
+    
   end
   
   def create
@@ -7,6 +8,6 @@ class Api::ProjectTeamsController < ApplicationController
   end
 
   def delete
-    
+
   end
 end

@@ -9,7 +9,7 @@ class User < ApplicationRecord
     # dependent: :destroy
 
   has_many :teams,
-    foreign_key: :project_id,
+    foreign_key: :user_id,
     class_name: "ProjectTeam"
 
   # backend auth
