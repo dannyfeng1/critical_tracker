@@ -9,34 +9,30 @@ class NavBar extends React.Component {
 
     let buttons = null;
     let searchBar = null;
-    let dashboard = null;
     if (currentUser) {
       buttons = (
-        <div>
-          <p>{currentUser.username}</p>
-          <button onClick={() => logout()}>Log Out</button>
-        </div>
+        <button onClick={() => logout()}>Log Out</button>
       )
       searchBar = (
         <p>Search Bar</p>
       )
-      dashboard = (
-        <p>Dashboard</p>
-      )
     }
     return (
     <header id="nav-bar">
-      <div>
+      <div id="logo-name">
         <Link to="/">
           <img src="https://cdn0.iconfinder.com/data/icons/esports-wildberry-vol-1/256/Critical_Damage-512.png" height="25px" width="25px" alt="" />
         </Link>
         <Link to="/">
-          <p>CriticalTracker</p>
+          CriticalTracker
+          {/* Going to be a drop down project links/create project form */}
         </Link>
       </div>
-      {dashboard}
-      {searchBar}
-      {buttons}
+      <div id="nav-bar-items">
+        {searchBar}
+        {/* search bar for projects on dashboard page and stories on projects page*/}
+        {buttons}
+      </div>
     </header>
     )
   }
