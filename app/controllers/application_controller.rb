@@ -19,4 +19,12 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !!current_user
   end
+
+  def require_logged_out
+    redirect_to user_url(current_user) if logged_in?
+  end
+
+  def require_logged_in
+    redirect_to new_session_url unless logged_in?
+  end
 end

@@ -3,10 +3,14 @@ class User < ApplicationRecord
   validates :email, :username, :session_token, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
 
-  has_many :projects,
+  has_many :projects_owned,
     foreign_key: :project_owner_id,
     class_name: "Project"
     # dependent: :destroy
+
+  has_many :teams,
+    foreign_key: :project_id,
+    class_name: "ProjectTeam"
 
   # backend auth
   attr_reader :password
