@@ -1,4 +1,5 @@
 import React from 'react';
+import CreateProjectFormContainer from './create_project_form_container';
 
 class Modal extends React.Component {
   constructor(props) {
@@ -6,22 +7,18 @@ class Modal extends React.Component {
   }
 
   render() {
-    let { type } = this.props;
-    console.log(this.props);
+    let { type, closeModal } = this.props;
     let component = null;
-    let button = (
-      <button onClick={() => this.props.closeModal()}>Close</button>
-    )
+    
     switch (type) {
-      case "createProject":ac
-        component = <h1>Modal Testing</h1>
+      case "createProject":
+        component = <CreateProjectFormContainer closeModal={closeModal} />
       default:
         break;
     }
 
     return (
       <div id="modal">
-        {type ? button : null }
         {component}
       </div>
     )

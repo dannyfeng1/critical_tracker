@@ -1,3 +1,1 @@
-json.set! @project.id do
-  json.partial! 'project', project: @project
-end
+json.partial! 'project', project: @project
