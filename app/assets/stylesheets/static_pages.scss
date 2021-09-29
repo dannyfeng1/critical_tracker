@@ -8,6 +8,14 @@ body, html {
   box-sizing: border-box;
 }
 
+#modal {
+  z-index: 10;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 #nav-bar {
   display: inline-flex;
   // display: flex;
@@ -18,24 +26,32 @@ body, html {
   justify-content: space-between;
   border-bottom: 1px black solid;
   font-size: large;
-}
-
-#nav-bar {
-  height: 35px;
+  height: 4%;
+  a {
+    text-decoration: none;
+  }
 }
 
 #logo-name {
+  height: 4%;
   display: inline-flex;
   align-items: center;
   // justify-content: 
 }
 
 #nav-bar-items {
+  height: 4%;
   display: inline-flex;
   flex-direction: row;
   align-items: center;
   width: 40%;
   justify-content: space-between;
+
+  button:hover {
+    transform: scale(1.04, 1);
+    background-color: rgb(226, 178, 105);
+    text-decoration: none;
+  }
 }
 
 #nav-bar button {
@@ -137,4 +153,76 @@ body, html {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#my-projects {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 3%;
+  height: 100%;
+  width: 100%;
+  align-content: center;
+
+  header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: xx-large;
+    padding: 1%;
+    padding-left: 19.4%;
+    align-items: center;
+    background-color: white;
+
+    button {
+      font-size: 13px;
+      letter-spacing: 2px;
+      font-weight: 400 !important;
+      background-color: #3d83b3;
+      color: #fff;
+      padding: 4px 1px;
+      margin: 1%;
+      margin-right: 42.7%;
+      border: 0px;
+      width: 10%;
+      cursor: pointer;
+      transition: all 0.3s 0s ease-in-out;
+    }
+    button:hover {
+      transform: scale(1.04, 1);
+      background-color: #4897cc;
+      text-decoration: none;
+    }
+  }
+
+  
+  ul {
+    width: 100%;
+    position: absolute;
+    padding-top: 2%;
+    padding-left: 14.5%;
+    background-color: whitesmoke;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    
+    h2 {
+      font-size: x-large;
+      margin-bottom: 1%;  
+      padding-bottom: 1%;
+    }
+  }
+
+  ul div {
+    background-color: snow;
+    margin-left: 5%;
+    width: 20%;
+    height: 5%;
+    padding: 1%;
+    padding-left: 5%;
+    margin-bottom: 1%;
+    border: 1px solid lightgray;
+    justify-self: center;
+  }
 }

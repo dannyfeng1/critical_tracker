@@ -3,7 +3,7 @@ class CreateProjectTeams < ActiveRecord::Migration[5.2]
     create_table :project_teams do |t|
       t.integer :project_id, null: false
       t.integer :user_id, null: false
-      t.timestamps
+      t.timestamp
     end
 
     add_index :project_teams, :user_id

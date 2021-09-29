@@ -8,10 +8,12 @@ import DemoContainer from '../components/user_auth/demo_container'
 import { AuthRoute, ProtectedRoute } from "../util/route_utils";
 import Dashboard from './dashboard/dashboard';
 import RoutingError from './routing_error'
+import ModalContainer from './modals/modal_container';
 
 const App = () => (
   <div>
     <NavBarContainer />
+    <ModalContainer />
 
     <Switch>
       <ProtectedRoute path="/dashboard" component={Dashboard}/>
