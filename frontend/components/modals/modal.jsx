@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route } from 'react-router';
 import AddMembersFormContainer from './add_members_container';
 import CreateProjectFormContainer from './create_project_form_container';
 
@@ -16,7 +17,7 @@ class Modal extends React.Component {
       case "createProject":
         component = <CreateProjectFormContainer closeModal={closeModal} />
       case "addMembers":
-        component = <AddMembersFormContainer closeModal={closeModal}/>
+        component = <Route path="/projects/:projectId/members" component={AddMembersFormContainer}/>
       default:
         break;
     }

@@ -1,3 +1,103 @@
 // Place all the styles related to the Api::ProjectTeams controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#members-container, #project-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .project-header {
+    background-color: #256188;
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-left: 10px;
+
+    h1 {
+      color: whitesmoke;
+      font-size: large;
+      border-right: 1px solid gray;
+      padding-right: 20px;
+    }
+    button {
+      margin-left: 10px;  
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-weight: 700 !important;
+      color: rgb(63, 127, 187);
+      margin: 10px;
+      padding: 5px;
+      width: 100px;
+      text-align: center;
+      border: 0px;
+      cursor: pointer;
+      transition: all 0.3s 0s ease-in-out;
+      border-style: none;
+    }
+    button:hover {
+      transform: scale(1.04, 1);
+      background-color: #71bef1;
+      text-decoration: none;
+    }
+  }
+  header {
+    margin-top: 20px;
+    width: 60vw;
+    // margin-left: 18.5vw;
+    display: flex;
+    padding: 25px;
+    justify-content: space-between;
+    background-color: whitesmoke;
+    align-items: center;
+
+    h1 {
+      font-size: xx-large;
+    }
+
+    button {
+      font-size: large;
+      letter-spacing: 2px;
+      background-color:rgb(63, 127, 187);
+      font-weight: 400 !important;
+      color: rgb(255, 255, 255);
+      margin: 10px;
+      padding: 10px;
+      width: 170px;
+      text-align: center;
+      border: 0px;
+      cursor: pointer;
+      transition: all 0.3s 0s ease-in-out;
+      border-style: none;
+    }
+    button:hover {
+      transform: scale(1.04, 1);
+      background-color: #71bef1;
+      text-decoration: none;
+    }
+  }
+
+  #members-list {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 60vw;
+    // margin-left: 18vw;
+    // justify-content: space-around;
+
+
+    div {
+      height: 80px;
+      width: 200px;
+      background-color: whitesmoke;
+      padding: 20px;
+      margin: 15px;
+      align-content: center;
+      justify-content: center;
+    }
+      p {
+        padding: 3px;
+      }
+    }
+  }

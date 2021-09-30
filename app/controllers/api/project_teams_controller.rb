@@ -6,12 +6,17 @@ class Api::ProjectTeamsController < ApplicationController
   
   def create
     user = User.find_by(username: params[:form][:username])
-    @membership = ProjectTeam.new(user_id: user.id, project_id: params[:form][:project_id])
 
-    if @membership.save
-      render :new_member
+    if user.nil?
+      render json: ["User does not exist"], status: 401
     else
-      render @membership.errors.full_messages, status: 422
+      @membership = ProjectTeam.new(user_id: user.id, project_id: params[:form][:project_id])
+
+      if @membership.save
+        render :new_member
+      else
+        render json: ["User is already in this project."], status: 422
+      end
     end
   end
 

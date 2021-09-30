@@ -13,11 +13,15 @@ class AddMembersForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.addProjectMember(this.state)
-    
+      .then(() => this.setState({username: ""}));
   }
 
   componentDidMount() {
     this.props.getProject(this.props.projectId);
+  }
+
+  componentWillUnmount() {
+    this.props.clearMessages();
   }
 
   update(field) {
@@ -25,16 +29,27 @@ class AddMembersForm extends React.Component {
   }
 
   render() {
-    let { project } = this.props;
+    let { project, messages } = this.props;
     if (!project) return null;
+    let color = null;
+    console.log("messages")
+    console.log(messages)
+    if(messages[0] === 'User does not exist' || messages[0] === 'User is already in this project.') {
+      color = "red";
+    } else {
+      color = "green";
+    }
 
     return (
-      <div id="add-members-form">
-        <h1>Invite members to {project.title}!</h1>
-        <form onSubmit={this.handleSubmit}>
+      <div id="add-members-container">
+        <form>
+          <h1>Invite members to {project.title}!</h1>
           <input type="text" placeholder="Enter a username to add to this project's team" value={this.state.username} onChange={this.update("username")}/>
-          <button onClick={this.props.closeModal}>Cancel</button>
-          <button>Add User to Team</button>
+          {messages.map(message => <p style={{color: color}}>{message}</p>)}
+          <div className="buttons-list">
+            <button className="submit" onClick={this.handleSubmit} >Add to Team</button>
+            <button onClick={this.props.closeModal}>Cancel</button>
+          </div>
         </form>
       </div>
     )

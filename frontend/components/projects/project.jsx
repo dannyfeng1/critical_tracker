@@ -19,7 +19,7 @@ class Project extends React.Component {
     }
 
     return (
-      <div className="project-container">
+      <div id="project-container">
         <div className="project-header">
           <h1 className="project-title">{project.title}</h1>
           <button onClick={() => this.props.history.push(`/projects/${project.id}`)}>Stories</button>
