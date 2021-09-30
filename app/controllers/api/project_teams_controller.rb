@@ -8,7 +8,7 @@ class Api::ProjectTeamsController < ApplicationController
     user = User.find_by(username: params[:form][:username])
 
     if user.nil?
-      render json: ["User does not exist"], status: 401
+      render json: ["User does not exist."], status: 401
     else
       @membership = ProjectTeam.new(user_id: user.id, project_id: params[:form][:project_id])
 

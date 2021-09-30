@@ -44,7 +44,7 @@ class Api::ProjectsController < ApplicationController
     if @project
       @project.destroy
     else
-      render json: ["No project with that id"], status: 404
+      render json: ["No project with that id."], status: 404
     end
     
   end

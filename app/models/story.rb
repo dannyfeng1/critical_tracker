@@ -1,5 +1,6 @@
 class Story < ApplicationRecord
-  validates :title, :story_type, :story_state, :priority, :story_owner_id, :project_id, presence: :true
+  validates :title, :story_type, :story_state, :story_owner_id, :project_id, presence: :true
+  validates :priority, inclusion: {in: [true, false]}
 
   belongs_to :story_owner,
     foreign_key: :story_owner_id,
