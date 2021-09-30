@@ -10,7 +10,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetchProjects: () => dispatch(getUserProjects()),
   openModal: (type) => dispatch(openModal(type)),
-  createProject: (project) => dispatch(createNewProject(project))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyProjects);

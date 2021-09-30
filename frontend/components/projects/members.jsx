@@ -38,10 +38,11 @@ class Members extends React.Component {
           <button onClick={() => this.props.history.push(`/projects/${project.id}`)}>Stories</button>
           <button onClick={() => this.props.history.push(`/projects/${project.id}/members`)}>Members</button>
         </div>
-        <form onSubmit={this.handleSubmit}>
+        <button onClick={() => this.props.openModal("addMembers")}>Invite People</button>
+        {/* <form onSubmit={this.handleSubmit}>
           <input type="text" placeholder="Enter a username to add to this project's team" value={this.state.username} onChange={this.update("username")}/>
           <button>Add User to Team</button>
-        </form>
+        </form> */}
         <ul>
           {members.map(member => 
             <div key={member.id}>

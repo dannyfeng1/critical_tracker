@@ -1,4 +1,5 @@
 import React from 'react';
+import AddMembersFormContainer from './add_members_container';
 import CreateProjectFormContainer from './create_project_form_container';
 
 class Modal extends React.Component {
@@ -14,6 +15,8 @@ class Modal extends React.Component {
     switch (type) {
       case "createProject":
         component = <CreateProjectFormContainer closeModal={closeModal} />
+      case "addMembers":
+        component = <AddMembersFormContainer closeModal={closeModal}/>
       default:
         break;
     }
