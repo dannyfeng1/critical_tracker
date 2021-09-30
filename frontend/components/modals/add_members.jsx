@@ -22,6 +22,7 @@ class AddMembersForm extends React.Component {
 
   componentWillUnmount() {
     this.props.clearMessages();
+    this.props.closeModal();
   }
 
   update(field) {
@@ -32,8 +33,7 @@ class AddMembersForm extends React.Component {
     let { project, messages } = this.props;
     if (!project) return null;
     let color = null;
-    console.log("messages")
-    console.log(messages)
+    
     if(messages[0] === 'User does not exist' || messages[0] === 'User is already in this project.') {
       color = "red";
     } else {

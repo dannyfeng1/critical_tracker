@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_28_045603) do
+ActiveRecord::Schema.define(version: 2021_09_30_212036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assigned_stories", force: :cascade do |t|
+    t.integer "assigned_user_id", null: false
+    t.integer "story_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["assigned_user_id"], name: "index_assigned_stories_on_assigned_user_id"
+    t.index ["story_id"], name: "index_assigned_stories_on_story_id"
+  end
 
   create_table "project_teams", force: :cascade do |t|
     t.integer "project_id", null: false
@@ -32,6 +41,21 @@ ActiveRecord::Schema.define(version: 2021_09_28_045603) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_owner_id"], name: "index_projects_on_project_owner_id"
+  end
+
+  create_table "stories", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "description"
+    t.string "story_type", null: false
+    t.string "story_state", null: false
+    t.boolean "priority", null: false
+    t.integer "points"
+    t.integer "story_owner_id", null: false
+    t.integer "project_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_stories_on_project_id"
+    t.index ["story_owner_id"], name: "index_stories_on_story_owner_id"
   end
 
   create_table "users", force: :cascade do |t|

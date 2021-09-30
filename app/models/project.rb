@@ -10,6 +10,10 @@ class Project < ApplicationRecord
     class_name: "ProjectTeam",
     dependent: :destroy
 
+  has_many :stories,
+    foreign_key: :project_id,
+    class_name: "Story"
+
   has_many :team_members, 
     through: :users,
     source: :member

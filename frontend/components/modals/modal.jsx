@@ -11,17 +11,17 @@ class Modal extends React.Component {
   render() {
     let { type, closeModal } = this.props;
     let component = null;
-
-    
     switch (type) {
-      case "createProject":
-        component = <CreateProjectFormContainer closeModal={closeModal} />
       case "addMembers":
         component = <Route path="/projects/:projectId/members" component={AddMembersFormContainer}/>
+        break;
+      case "createProject":
+        component = <CreateProjectFormContainer closeModal={closeModal} />
+        break;
       default:
         break;
     }
-
+          
     return (
       <div id="modal">
         {component}

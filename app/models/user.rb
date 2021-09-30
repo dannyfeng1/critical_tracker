@@ -12,6 +12,18 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: "ProjectTeam"
 
+  has_many :stories_owned,
+    foreign_key: :story_owner_id,
+    class_name: "Story"
+
+  has_many :stories_assigned,
+    foreign_key: :assigned_user_id,
+    class_name: "AssignedStory"
+
+  has_many :assigned_stories,
+    through: :stories_assigned,
+    source: :story
+
   # backend auth
   attr_reader :password
 

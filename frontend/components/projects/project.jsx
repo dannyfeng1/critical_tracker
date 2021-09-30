@@ -1,4 +1,5 @@
 import React from 'react';
+import StoriesPage from '../stories/stories_page';
 
 class Project extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class Project extends React.Component {
   }
 
   render() {
-    let { members, project } = this.props;
+    let { project } = this.props;
 
     if (project === undefined) {
       return null;
@@ -25,6 +26,7 @@ class Project extends React.Component {
           <button onClick={() => this.props.history.push(`/projects/${project.id}`)}>Stories</button>
           <button onClick={() => this.props.history.push(`/projects/${project.id}/members`)}>Members</button>
         </div>
+        <StoriesPage />
       </div>
     )
   }
