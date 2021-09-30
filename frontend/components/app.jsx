@@ -9,6 +9,8 @@ import { AuthRoute, ProtectedRoute } from "../util/route_utils";
 import Dashboard from './dashboard/dashboard';
 import RoutingError from './routing_error'
 import ModalContainer from './modals/modal_container';
+import ProjectContainer from './projects/projects_container';
+import MembersContainer from './projects/members_container';
 
 const App = () => (
   <div>
@@ -17,6 +19,8 @@ const App = () => (
 
     <Switch>
       <ProtectedRoute path="/dashboard" component={Dashboard}/>
+      <ProtectedRoute path="/projects/:projectId/members" component={MembersContainer}/>
+      <ProtectedRoute path="/projects/:projectId" component={ProjectContainer} />
       <AuthRoute path="/signup" component={SignUpFormContainer} />
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/demo" component={DemoContainer} />

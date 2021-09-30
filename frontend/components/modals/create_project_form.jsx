@@ -24,13 +24,15 @@ class CreateProjectForm extends React.Component {
     let { title, description } = this.state;
 
     return (
-      <div id="create-project-form">
-        <h1>Create a new project</h1>
-        <form>
-          <input type="text" placeholder="Title" value={title} onChange={this.update("title")} />
-          <textarea placeholder="Brief Description" value={description} onChange={this.update("description")} id="" cols="30" rows="10"></textarea>
-          <button onClick={() => this.props.closeModal()}>Cancel</button>
-          <button onClick={this.handleSubmit}>Create</button>
+      <div id="create-project-container">
+        <form id="create-project-form">
+          <h1>Create a new project</h1>
+          <input type="text" placeholder="Project Name" value={title} onChange={this.update("title")} />
+          <textarea placeholder="Brief Description" value={description} onChange={this.update("description")} id="" cols="30" rows="40"></textarea>
+          <div className="buttons-list">
+            <button onClick={() => this.props.closeModal()}>Cancel</button>
+            <button className="submit" onClick={this.handleSubmit}>Create</button>
+          </div>
         </form>
       </div>
     )

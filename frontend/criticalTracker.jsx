@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { login, logout } from './actions/session';
+import { fetchMembers } from './actions/projects';
 import Root from './components/root'
 import configureStore from './store/store';
 
@@ -24,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.dispatch = store.dispatch
   window.login = login
   window.logout = logout
+  window.fetchMembers = fetchMembers
 
 
   ReactDOM.render(<Root store={store} />, root)

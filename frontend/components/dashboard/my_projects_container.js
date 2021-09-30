@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { openModal } from "../../actions/modal";
-import { getUserProjects, deleteProject, createNewProject } from "../../actions/projects";
+import { getUserProjects, createNewProject } from "../../actions/projects";
 import MyProjects from "./my_projects";
 
 const mapStateToProps = state => ({

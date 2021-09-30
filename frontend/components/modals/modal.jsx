@@ -9,6 +9,7 @@ class Modal extends React.Component {
   render() {
     let { type, closeModal } = this.props;
     let component = null;
+
     
     switch (type) {
       case "createProject":

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class ProjectItem extends React.Component {
   constructor(props) {
@@ -14,8 +15,10 @@ class ProjectItem extends React.Component {
 
     return (
       <div className="project-item">
-        <h2>{project.title}</h2>
-        <p>{project.description}</p>
+        <Link to={`/projects/${project.id}`}>
+          <h2>{project.title}</h2>
+          <p>{project.description}</p>
+        </Link>
       </div>
     )
   }

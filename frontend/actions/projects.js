@@ -5,6 +5,8 @@ export const RECEIVE_PROJECT = "RECEIVE_PROJECT";
 export const REMOVE_PROJECT = "REMOVE_PROJECT";
 export const RECEIVE_PROJECT_ERRORS = "RECEIVE_PROJECT_ERRORS";
 export const CLEAR_PROJECT_ERRORS = "CLEAR_PROJECT_ERRORS";
+export const RECEIVE_MEMBERS = "RECEIVE_MEMBERS"
+export const RECEIVE_MEMBER = "RECEIVE_MEMBER";
 
 const receivedUserProjects = (projects) => ({
   type: RECEIVE_USER_PROJECTS,
@@ -24,6 +26,16 @@ const removeProject = projectId => ({
 const receiveErrors = errors => ({
   type: RECEIVE_PROJECT_ERRORS,
   errors
+})
+
+const receivedMembers = members => ({
+  type: RECEIVE_MEMBERS,
+  members
+})
+
+const receivedMember = member => ({
+  type: RECEIVE_MEMBER,
+  member
 })
 
 export const clearErrors = () => ({
@@ -57,4 +69,14 @@ export const deleteProject = projectId => dispatch => (
   ProjectsAPI.deleteProject(projectId)
     .then(() => dispatch(removeProject(projectId)),
     errors => dispatch(receiveErrors(errors)))
+)
+
+export const fetchMembers = projectId => dispatch => (
+  ProjectsAPI.fetchProjectMembers(projectId)
+    .then((members) => dispatch(receivedMembers(members)))
+)
+
+export const addProjectMember = form => dispatch => (
+  ProjectsAPI.addProjectMember(form)
+    .then((member) => dispatch(receivedMember(member)))
 )

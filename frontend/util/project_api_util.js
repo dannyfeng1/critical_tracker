@@ -34,3 +34,18 @@ export const deleteProject = projectId => (
     url: `/api/projects/${projectId}`
   })
 )
+
+export const fetchProjectMembers = (projectId) => (
+  $.ajax({
+    method: "GET",
+    url: `api/project_teams/${projectId}`
+  })
+)
+
+export const addProjectMember = (form) => (
+  $.ajax({
+    method: "POST",
+    url: `api/project_teams`,
+    data: { form }
+  })
+)
