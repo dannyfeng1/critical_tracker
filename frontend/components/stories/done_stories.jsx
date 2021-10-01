@@ -1,4 +1,5 @@
 import React from 'react';
+import StoryItemContainer from './story_item_container';
 
 class DoneStories extends React.Component {
   constructor(props) {
@@ -10,9 +11,10 @@ class DoneStories extends React.Component {
       return null;
     }
 
+    let { finished } = this.props
     return (
       <div className="story-box">
-        <h1>List of finished stories</h1>
+        {finished.map(story => <StoryItemContainer key={story.id} story={story}/>)}
       </div>
     )
   }

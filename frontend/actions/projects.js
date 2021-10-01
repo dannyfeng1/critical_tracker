@@ -40,7 +40,7 @@ const receivedMember = member => ({
   member
 })
 
-export const clearErrors = () => ({
+export const clearProjectErrors = () => ({
   type: CLEAR_PROJECT_ERRORS,
 })
 

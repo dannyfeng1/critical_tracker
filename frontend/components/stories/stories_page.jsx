@@ -1,8 +1,8 @@
 import React from 'react';
-import Backlog from './backlog';
-import DoneStories from './done_stories';
-import Icebox from './icebox';
-import MyWork from './myWork';
+import BacklogContainer from './backlog_container';
+import DoneStoriesContainer from './done_stories_container';
+import IceboxContainer from './ice_box_container';
+import MyWorkContainer from './myWork_container';
 
 class StoriesPage extends React.Component {
   constructor(props){
@@ -21,8 +21,13 @@ class StoriesPage extends React.Component {
     this.setState({[container]: flag})
   }
 
+  componentDidMount() {
+    this.props.fetchStories(this.props.projectId);
+  }
   render() {
     let { myWork, backlog, icebox, doneStories } = this.state;
+    let { currentUser, projectId} = this.props;
+
     return (
       <div id="stories-page">
         <div id="stories-sidebar">
@@ -34,10 +39,10 @@ class StoriesPage extends React.Component {
           </ul>
         </div>
         <div id="stories-containers">
-          <MyWork presence={myWork} />
-          <Backlog presence={backlog} />
-          <Icebox presence={icebox} />
-          <DoneStories presence={doneStories} />
+          <MyWorkContainer currentUser={currentUser} projectId={projectId} presence={myWork} />
+          <BacklogContainer currentUser={currentUser} projectId={projectId} presence={backlog} />
+          <IceboxContainer currentUser={currentUser} projectId={projectId} presence={icebox} />
+          <DoneStoriesContainer currentUser={currentUser} projectId={projectId} presence={doneStories} />
         </div>
       </div>
     )

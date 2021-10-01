@@ -53,7 +53,7 @@
     padding-left: 16.5%;
     padding-right: 18.5%;
     background-color: whitesmoke;
-    height: 100vh;
+    // height: 100vh;
     display: flex;
     flex-wrap: wrap;
     
@@ -112,7 +112,7 @@
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 400px;
+    height: 300px;
     width: 402px;
     background-color: whitesmoke;
 
@@ -127,12 +127,12 @@
       align-self: center;
       padding: 10px;
       margin-top: 5px;
-      margin-bottom: 50px;
       border-color: grey;
     }
 
     textarea {
-      height: 20%;
+      height: 30%;
+      margin-top: 30px;
       resize: none;
     }
 
@@ -145,7 +145,13 @@
       justify-content: center;
       height: 30px;
       font-weight: 100;
+      margin-top: 10px;
       margin-left: 10px;
+      margin-bottom: 30px;
+    }
+    p {
+      color: red;
+      padding-top: 10px;
     }
 
     .submit {

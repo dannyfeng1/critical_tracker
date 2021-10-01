@@ -1,4 +1,5 @@
 import React from 'react';
+import StoryItemContainer from './story_item_container';
 
 class Backlog extends React.Component {
   constructor(props) {
@@ -10,9 +11,10 @@ class Backlog extends React.Component {
       return null;
     }
 
+    let { backlog } = this.props
     return (
       <div className="story-box">
-        <h1>List of the backlog</h1>
+        {backlog.map(story => <StoryItemContainer key={story.id} story={story}/>)}
       </div>
     )
   }

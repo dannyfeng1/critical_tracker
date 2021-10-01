@@ -4,6 +4,7 @@ import { login, logout } from './actions/session';
 import { fetchMembers } from './actions/projects';
 import Root from './components/root'
 import configureStore from './store/store';
+import { fetchProjectStories } from './actions/stories';
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
@@ -26,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.login = login
   window.logout = logout
   window.fetchMembers = fetchMembers
+  window.fetchProjectStories = fetchProjectStories
 
 
   ReactDOM.render(<Root store={store} />, root)

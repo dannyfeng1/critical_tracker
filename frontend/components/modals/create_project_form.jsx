@@ -14,10 +14,14 @@ class CreateProjectForm extends React.Component {
     return e => this.setState({[field]: e.target.value})
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+  
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createProject(this.state);
-    this.props.closeModal()
+    this.props.createProject(this.state)
+      .then(() => this.props.closeModal())
   }
 
   render() {
@@ -33,6 +37,7 @@ class CreateProjectForm extends React.Component {
             <button className="submit" onClick={this.handleSubmit}>Create</button>
             <button onClick={() => this.props.closeModal()}>Cancel</button>
           </div>
+          {this.props.errors.map(error => <p>{error}</p>)}
         </form>
       </div>
     )
