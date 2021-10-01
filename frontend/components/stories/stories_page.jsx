@@ -10,7 +10,7 @@ class StoriesPage extends React.Component {
     this.state = {
       myWork: true,
       backlog: true,
-      icebox: false,
+      icebox: true,
       doneStories: false
     };
   }

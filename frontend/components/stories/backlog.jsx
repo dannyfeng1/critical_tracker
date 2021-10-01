@@ -14,6 +14,7 @@ class Backlog extends React.Component {
     let { backlog } = this.props
     return (
       <div className="story-box">
+        <h1>Backlog</h1>
         {backlog.map(story => <StoryItemContainer key={story.id} story={story}/>)}
       </div>
     )

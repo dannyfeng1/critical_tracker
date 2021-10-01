@@ -6,10 +6,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 1px solid black;
 
   .project-header {
     background-color: #256188;
-    width: 100vw;
+    width: 99vw;
     display: flex;
     flex-wrap: wrap;
     align-items: center;

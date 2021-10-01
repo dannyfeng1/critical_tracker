@@ -1,3 +1,49 @@
 // Place all the styles related to the Api::Stories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#stories-page {
+  display: flex;
+  justify-content: start;
+  width: 99vw;
+  height: 100vh;
+
+  #stories-sidebar {
+    width: 14vw;
+    // padding-left: 30px;
+    background-color: teal;
+    border: 2px solid slategrey;
+
+    li {
+      padding-left: 30px;
+      font-size: xx-large;
+      padding-top: 30px;
+    }
+  }
+
+  #stories-containers {
+    display: flex;
+    flex-direction: row;
+    width: 85vw;
+    justify-content: flex-start;
+
+    .story-box {
+      padding-top: 30px;
+      width: inherit;
+      // padding-right: 40px;
+      background-color: teal;
+      border: 2px solid slategrey;
+
+
+      h1 {
+        font-size: x-large;
+      }
+
+      .story-item {
+        padding: 5px;
+        background-color: whitesmoke;
+        border: 1px solid lightgray
+      }
+    }
+  }
+}

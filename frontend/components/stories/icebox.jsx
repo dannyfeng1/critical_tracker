@@ -14,6 +14,7 @@ class Icebox extends React.Component {
     let { icebox } = this.props
     return (
       <div className="story-box">
+        <h1>Icebox</h1>
         {icebox.map(story => <StoryItemContainer key={story.id} story={story}/>)}
       </div>
     )

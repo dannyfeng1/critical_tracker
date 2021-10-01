@@ -1,7 +1,7 @@
 class Api::StoriesController < ApplicationController
   def index
     @stories = Project.find_by(id: params[:projectId]).stories
-    @user_assigned_stories = current_user.assigned_stories.where(project_id: params[:projectId]).where.not(story_state: "Finished")
+    @user_assigned_stories = current_user.assigned_stories.where(project_id: params[:projectId]).where.not(stories: {story_state: "Finished"})
     render :index
   end
 

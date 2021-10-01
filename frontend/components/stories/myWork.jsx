@@ -15,6 +15,7 @@ class MyWork extends React.Component {
     let { myWork } = this.props
     return (
       <div className="story-box">
+        <h1>My Work</h1>
         {myWork.map(story => <StoryItemContainer key={story.id} story={story}/>)}
       </div>
     )

@@ -6,7 +6,7 @@ const myWorkReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ALL_STORIES:
-      return action.stories.finished
+      return action.stories.myWork
     case RECEIVE_ASSIGNMENT:
       newState[action.storyId] = action.story;
       return newState;
