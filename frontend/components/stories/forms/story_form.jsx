@@ -16,13 +16,18 @@ class StoryForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   handleSubmit() {
     if (this.props.formType === "MyWork") {
       this.props.createStory(this.state)
-      .then(story => this.props.assignStory(story.id))
+      .then(action => this.props.assignStory(action.story.id))
     } else {
       this.props.createStory(this.state);
     }
+    this.props.clearErrors();
   }
   
   update(field) {
@@ -45,13 +50,10 @@ class StoryForm extends React.Component {
           </select>
           <textarea placeholder="Description" id="" cols="30" rows="5" onChange={this.update("description")} value={description}></textarea>
           <button onClick={this.handleSubmit}>Create Story</button>
-          <button>Cancel</button>
         </form>
       </div>
     )
-
   }
-
 }
 
 export default StoryForm;
