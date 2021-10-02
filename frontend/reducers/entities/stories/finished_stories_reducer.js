@@ -6,7 +6,7 @@ const finishedStoriesReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ALL_STORIES:
-      return action.stories.finished
+      return action.stories.finished ||= {};
     case RECEIVE_STORY:
       if (action.story.story_state === "Finished") {
         newState[action.story.id] = action.story;

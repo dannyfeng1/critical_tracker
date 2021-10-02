@@ -6,7 +6,7 @@ const backlogReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ALL_STORIES:
-      return action.stories.backlog
+      return action.stories.backlog ||= {}
     case RECEIVE_STORY:
       if (action.story.story_state === "Finished" || action.story.priority === false) {
         return state;

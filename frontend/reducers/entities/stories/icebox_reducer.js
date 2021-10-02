@@ -6,7 +6,7 @@ const iceboxReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ALL_STORIES:
-      return action.stories.icebox
+      return action.stories.icebox ||= {}
     case RECEIVE_STORY:
       if (action.story.priority === false) {
         newState[action.story.id] = action.story;
