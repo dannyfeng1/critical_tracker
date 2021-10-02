@@ -8,7 +8,7 @@ const myWorkReducer = (state = {}, action) => {
     case RECEIVE_ALL_STORIES:
       return action.stories.myWork ||= {};
     case RECEIVE_ASSIGNMENT:
-      newState[action.storyId] = action.story;
+      newState[action.story.id] = action.story;
       return newState;
     case REMOVE_STORY:
       delete newState[action.storyId]
