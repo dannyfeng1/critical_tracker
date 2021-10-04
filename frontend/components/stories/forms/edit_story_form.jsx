@@ -4,13 +4,13 @@ import StoryDetails from "../story_details";
 class EditStoryForm extends React.Component {
   constructor(props) {
     super(props);
-    let { title, description, story_type, assignedUser, id} = this.props.story
+    let { title, description, story_type, assignedUser, id, points} = this.props.story
     this.state = {
       id: id,
       title: title,
       description: description,
       story_type: story_type,
-      points: null,
+      points: points,
       assign_to: assignedUser
     }
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,7 +37,9 @@ class EditStoryForm extends React.Component {
       return (
         <div className="edit-story-container">
           <form>
-            <input type="text" placeholder="Title" onChange={this.update("title")} value={title}/>
+            <label>Title:
+              <input type="text" onChange={this.update("title")} value={title}/>
+            </label>
             <label>Label:
             <select onChange={this.update("story_type")} value={story_type}>
               <option value="Features">Features</option>
@@ -63,7 +65,9 @@ class EditStoryForm extends React.Component {
                 <option value={4}>4 Points</option>
               </select>
             </label>
-            <textarea placeholder="Description" id="" cols="30" rows="5" onChange={this.update("description")} value={description}></textarea>
+            <label>Description:
+              <textarea placeholder="Description" id="" cols="30" rows="5" onChange={this.update("description")} value={description}></textarea>
+            </label>
             <button onClick={this.handleSubmit}>Save</button>
             <button onClick={() => this.props.deleteStory(story.id)}>Delete</button>
           </form>

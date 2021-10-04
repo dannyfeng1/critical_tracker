@@ -9,7 +9,7 @@ class StoryForm extends React.Component {
       story_type: "",
       story_state: "Unstarted",
       priority: this.props.priority,
-      points: null,
+      points: 0,
       story_owner_id: this.props.currentUser.id,
       project_id: this.props.projectId,
       assign_to: "-"
@@ -59,7 +59,9 @@ class StoryForm extends React.Component {
     return (
       <div id="story-create-container">
         <form className="story-form">
-          <input type="text" placeholder="Title" onChange={this.update("title")} value={title}/>
+          <label>Title:
+            <input type="text" onChange={this.update("title")} value={title}/>
+          </label>
           <label>Label:
             <select onChange={this.update("story_type")} value={story_type}>
               <option value=" " >Select an option</option>
@@ -79,7 +81,9 @@ class StoryForm extends React.Component {
               <option value={4}>4 Points</option>
             </select>
           </label>
-          <textarea placeholder="Description" id="" cols="30" rows="5" onChange={this.update("description")} value={description}></textarea>
+          <label>Description:
+            <textarea placeholder="Enter a desciption for this story" id="" cols="30" rows="5" onChange={this.update("description")} value={description}></textarea>
+          </label>
           <button onClick={this.handleSubmit}>Create Story</button>
         </form>
       </div>
