@@ -11,7 +11,7 @@ class StoriesPage extends React.Component {
       myWork: true,
       backlog: true,
       icebox: true,
-      doneStories: false
+      doneStories: true
     };
   }
 
@@ -26,7 +26,7 @@ class StoriesPage extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.projectId !== this.props.projectId) {
+    if (prevProps.projects !== this.props.projects) {
       this.props.fetchStories(this.props.projectId);
     }
   }

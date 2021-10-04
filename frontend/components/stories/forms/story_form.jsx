@@ -23,14 +23,11 @@ class StoryForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (this.props.formType === "MyWork") {
+    if (this.props.formType === "MyWork" || this.state.assign_to === this.props.currentUser.username) {
       this.props.createStory(this.state)
       .then(action => this.props.assignStory(action.story.id))
     } else {
       this.props.createStory(this.state);
-    }
-    if (this.state.assign_to === this.props.currentUser.username) {
-      this.props(assi)
     }
     this.props.clearErrors();
   }

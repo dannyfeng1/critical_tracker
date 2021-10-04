@@ -8,8 +8,9 @@ const backlogReducer = (state = {}, action) => {
     case RECEIVE_ALL_STORIES:
       return action.stories.backlog ||= {}
     case RECEIVE_STORY:
-      if (action.story.story_state === "Finished" || action.story.priority === false) {
-        return state;
+      if (action.story.storyState === "Finished" || action.story.priority === false) {
+        delete newState[action.story.id]
+        return newState;
       } else {
         newState[action.story.id] = action.story;
         return newState;

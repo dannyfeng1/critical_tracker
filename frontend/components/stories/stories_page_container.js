@@ -4,7 +4,8 @@ import StoriesPage from "./stories_page";
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
-  projectId: ownProps.project.id
+  projectId: ownProps.project.id,
+  stories: state.entities.stories
 })
 
 const mapDispatchToProps = dispatch => ({

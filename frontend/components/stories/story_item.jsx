@@ -8,6 +8,9 @@ class StoryItem extends React.Component {
       details: false
     };
     this.toggleDetails = this.toggleDetails.bind(this);
+    this.startStory = this.startStory.bind(this);
+    this.finishStory = this.finishStory.bind(this);
+
   }
 
   toggleDetails() {
@@ -20,8 +23,24 @@ class StoryItem extends React.Component {
     }
   }
 
+  finishStory() {
+    let { story, updateStory } = this.props;
+    updateStory({
+      id: story.id,
+      story_state: "Finished"
+    })
+  }
+
+  startStory() {
+    let { story, updateStory } = this.props;
+    updateStory({
+      id: story.id,
+      story_state: "Started"
+    })
+  }
+
   render() {
-    let {storyType, title, assignedUser} = this.props.story;
+    let {storyType, title, assignedUser, storyState} = this.props.story;
 
     let assignment = (<p>Assigned To: N/A</p>);
     if (assignedUser) {
@@ -43,6 +62,11 @@ class StoryItem extends React.Component {
       }
     }
 
+    let taskButton = null;
+    if (this.props.formType === "MyWork") {
+      storyState === "Unstarted" ? taskButton = (<button onClick={this.startStory}>Start</button>) : taskButton = (<button onClick={this.finishStory}>Finish</button>)
+    }
+
     if (this.state.details === false ) {
       return (
         <div className="story-item-container">
@@ -51,6 +75,7 @@ class StoryItem extends React.Component {
             {this.props.formType !== "MyWork" ? assignment : null}
           </div>
           {assignmentButton}
+          {taskButton}
         </div>
       )
     } else {
