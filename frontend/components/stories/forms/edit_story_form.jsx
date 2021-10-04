@@ -19,7 +19,7 @@ class EditStoryForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.updateStory(this.state);
-    if (this.state.assign_to === currentUser) {
+    if (this.state.assign_to === this.props.currentUser) {
       this.props.formType === "Backlog" ? this.props.assignBacklog(this.state.id) : this.props.assignIcebox(this.state.id)
     }
     this.props.clearErrors();

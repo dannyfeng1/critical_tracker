@@ -22,9 +22,9 @@ class Api::StoriesController < ApplicationController
     @story = Story.find_by(id: params[:story][:id])
     if @story.update(story_params)
       assigned_user = User.find_by(username: params[:story][:assign_to])
+      @story.story_assigned.destroy
       if assigned_user != current_user
-        @story.story_assigned.destroy
-        AssignedStory.create(assigned_user_id: assigned_user.id, story_id: @story.id)
+        AssignedStory.create(assigned_user_id: assigned_user.id, story_id: @story.id) if assigned_user
       end
       render :show
     else
