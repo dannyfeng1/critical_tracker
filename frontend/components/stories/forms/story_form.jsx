@@ -54,7 +54,7 @@ class StoryForm extends React.Component {
     }
 
     return (
-      <div id="story-create-container">
+      <div className="story-create-container">
         <form className="story-form">
           <label>Title:
             <input type="text" onChange={this.update("title")} value={title}/>

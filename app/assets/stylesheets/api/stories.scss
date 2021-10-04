@@ -5,8 +5,9 @@
 #stories-page {
   display: flex;
   justify-content: start;
-  width: 99vw;
-  height: 100vh;
+  width: 100vw;
+  height: 91vh;
+  background-color: rgb(83, 81, 81);
 
   #stories-sidebar {
     width: 14vw;
@@ -24,6 +25,7 @@
   #stories-containers {
     display: flex;
     flex-direction: row;
+    height: 91vh;
     width: 85vw;
     justify-content: flex-start;
 
@@ -33,10 +35,36 @@
       // padding-right: 40px;
       background-color: teal;
       border: 2px solid slategrey;
+      overflow: auto;
 
+      .story-create-container, .edit-story-container {
+        width: inherit;
+        form {
+          height: 78vh;
+          width: inherit;
+          background-color: whitesmoke;
+          position: inherit;
+          display: flex;
+          flex-direction: column;
+          justify-content: start;
+          align-content: center;
+          z-index: 10;
 
+          label {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            padding: 10px;
+          }
+        }
+      }
       h1 {
         font-size: x-large;
+      }
+      
+      .story-container-header {
+        display: flex;
+        justify-content: space-between;
       }
 
       .story-item-container {
@@ -47,3 +75,4 @@
     }
   }
 }
+
