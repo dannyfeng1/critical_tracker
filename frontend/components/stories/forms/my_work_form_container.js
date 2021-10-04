@@ -11,7 +11,6 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   createStory: story => dispatch(createNewStory(story)),
-  assignStory: storyId => dispatch(assignStory(storyId)),
   clearErrors: () => dispatch(clearStoryErrors())
 })
 

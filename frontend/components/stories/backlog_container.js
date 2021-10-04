@@ -12,7 +12,6 @@ const mapDispatchToProps = dispatch => ({
   createStory: (story) => dispatch(createNewStory(story)),
   updateStory: (story) => dispatch(updateStory(story)),
   deleteStory: (storyId) => dispatch(deleteStory(storyId)),
-  assignStory: (storyId) => dispatch(assignStory(storyId))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Backlog);

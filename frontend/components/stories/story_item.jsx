@@ -1,12 +1,27 @@
 import React from 'react';
+import EditStoryFormContainer from './forms/edit_story_form_container';
 
 class StoryItem extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
+    this.state = {
+      details: false
+    };
+    this.toggleDetails = this.toggleDetails.bind(this);
+  }
+
+  toggleDetails() {
+    this.state.details ? this.setState({details: false}) : this.setState({details: true})
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.story !== this.props.story) {
+      this.setState({details: false})
+    }
   }
 
   render() {
-    let { id, description, points, priority, author, storyState, storyType, title, assignedUser} = this.props.story;
+    let {storyType, title, assignedUser} = this.props.story;
 
     let assignment = (<p>Assigned To: N/A</p>);
     if (assignedUser) {
@@ -28,18 +43,24 @@ class StoryItem extends React.Component {
       }
     }
 
-    return (
-      <div className="story-item-container">
-        <div className="story-item">
-          <h1>{storyType + ":" + ` ${title}`}</h1>
-          <h2>Created by: {author}</h2>
-          <h2>Status: {storyState}</h2>
-          {this.props.formType !== "MyWork" ? assignment : null}
-          <p>{description}</p>
+    if (this.state.details === false ) {
+      return (
+        <div className="story-item-container">
+          <div onClick={this.toggleDetails} className="story-item">
+            <h1>{storyType + ":" + ` ${title}`}</h1>
+            {this.props.formType !== "MyWork" ? assignment : null}
+          </div>
+          {assignmentButton}
         </div>
-        {assignmentButton}
-      </div>
-    )
+      )
+    } else {
+      return (
+        <div>
+          <EditStoryFormContainer story={this.props.story}/>
+          <button onClick={this.toggleDetails}>Collapse</button>
+        </div>
+      )
+    }
   }
 }
 

@@ -21,6 +21,11 @@ class Api::StoriesController < ApplicationController
   def update
     @story = Story.find_by(id: params[:story][:id])
     if @story.update(story_params)
+      assigned_user = User.find_by(username: params[:story][:assign_to])
+      if assigned_user
+        @story.story_assigned.destroy
+        AssignedStory.create(assigned_user_id: assigned_user.id, story_id: @story.id)
+      end
       render :show
     else
       render json: @story.errors.full_messages, status: 422
@@ -29,7 +34,7 @@ class Api::StoriesController < ApplicationController
   
   def destroy
     @story = Story.find_by(id: params[:id])
-    if story
+    if @story
       @story.destroy
       render :show
     else
@@ -39,6 +44,6 @@ class Api::StoriesController < ApplicationController
 
   private
   def story_params
-    params.require(:story).permit(:title, :description, :story_type, :story_state, :priority, :points, :story_owner_id, :project_id)
+    params.require(:story).permit(:id, :title, :description, :story_type, :story_state, :priority, :points, :story_owner_id, :project_id)
   end
 end

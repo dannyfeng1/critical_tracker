@@ -44,7 +44,7 @@ class StoryForm extends React.Component {
       assignInput = (
         <label>Assign to:
           <select onChange={this.update("assign_to")} value={assign_to}>
-            <option value="">None</option>
+            <option value=" ">None</option>
             {this.props.teamMembers.map(teamMember => 
               <option key={teamMember.id}value={`${teamMember.username}`}>{`${teamMember.username}`}</option>
               )}
@@ -59,7 +59,7 @@ class StoryForm extends React.Component {
           <input type="text" placeholder="Title" onChange={this.update("title")} value={title}/>
           <label>Label:
             <select onChange={this.update("story_type")} value={story_type}>
-              <option value="" >Select an option</option>
+              <option value=" " >Select an option</option>
               <option value="Features">Features</option>
               <option value="Bugs">Bugs</option>
               <option value="Chore">Chore</option>
@@ -67,6 +67,15 @@ class StoryForm extends React.Component {
             </select>
           </label>
           {assignInput}
+          <label>Points:
+          <select onChange={this.update("points")} value={points}>
+              <option value={0} >0 Points</option>
+              <option value={1}>1 Point</option>
+              <option value={2}>2 Points</option>
+              <option value={3}>3 Points</option>
+              <option value={4}>4 Points</option>
+            </select>
+          </label>
           <textarea placeholder="Description" id="" cols="30" rows="5" onChange={this.update("description")} value={description}></textarea>
           <button onClick={this.handleSubmit}>Create Story</button>
         </form>

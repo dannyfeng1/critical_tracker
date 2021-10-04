@@ -20,7 +20,6 @@ class MyWork extends React.Component {
     if (!this.props.presence) {
       return null;
     }
-    console.log(this.props)
 
     let { myWork, projectId } = this.props
     return (
