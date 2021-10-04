@@ -56,7 +56,7 @@ class StoryItem extends React.Component {
     } else {
       return (
         <div>
-          <EditStoryFormContainer story={this.props.story}/>
+          <EditStoryFormContainer formType={this.props.formType} story={this.props.story}/>
           <button onClick={this.toggleDetails}>Collapse</button>
         </div>
       )

@@ -5,7 +5,6 @@ class EditStoryForm extends React.Component {
   constructor(props) {
     super(props);
     let { title, description, story_type, assignedUser, id} = this.props.story
-    console.log(this.props.story)
     this.state = {
       id: id,
       title: title,
@@ -20,6 +19,9 @@ class EditStoryForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.updateStory(this.state);
+    if (this.state.assign_to === currentUser) {
+      this.props.formType === "Backlog" ? this.props.assignBacklog(this.state.id) : this.props.assignIcebox(this.state.id)
+    }
     this.props.clearErrors();
   }
 

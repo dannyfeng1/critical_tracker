@@ -10,7 +10,7 @@ class StoryForm extends React.Component {
       story_state: "Unstarted",
       priority: this.props.priority,
       points: null,
-      story_owner_id: this.props.currentUser,
+      story_owner_id: this.props.currentUser.id,
       project_id: this.props.projectId,
       assign_to: "-"
     };
@@ -28,6 +28,9 @@ class StoryForm extends React.Component {
       .then(action => this.props.assignStory(action.story.id))
     } else {
       this.props.createStory(this.state);
+    }
+    if (this.state.assign_to === this.props.currentUser.username) {
+      this.props(assi)
     }
     this.props.clearErrors();
   }
