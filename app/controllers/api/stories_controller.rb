@@ -8,6 +8,10 @@ class Api::StoriesController < ApplicationController
   def create
     @story = Story.new(story_params)
     if @story.save
+      assigned_user = User.find_by(username: params[:story][:assign_to])
+      if assigned_user
+        AssignedStory.create(assigned_user_id: assigned_user.id, story_id: @story.id)
+      end
       render :show
     else
       render json: @story.errors.full_messages, status: 422

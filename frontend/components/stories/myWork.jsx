@@ -7,6 +7,12 @@ class MyWork extends React.Component {
     super(props);
     this.state = {
       createForm: false
+    };
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.myWork !== this.props.myWork) {
+      this.setState({createForm: false});
     }
   }
 
@@ -21,11 +27,11 @@ class MyWork extends React.Component {
       <div className="story-box">
         <div>
           <h1>My Work</h1>
-          <button onClick={() => this.setState({createForm: true})}>Create Story</button>
+          {this.state.createForm ? null : <button onClick={() => this.setState({createForm: true})}>Create Story</button>}
           {this.state.createForm ? <MyWorkFormcontainer projectId={projectId}/> : null}
           {this.state.createForm ? <button onClick={() => this.setState({createForm: false})}>Cancel</button> : null }
         </div>
-        {myWork.map(story => <StoryItemContainer key={story.id} story={story}/>)}
+        {myWork.map(story => <StoryItemContainer key={story.id} story={story} formType="MyWork"/>)}
       </div>
     )
   }

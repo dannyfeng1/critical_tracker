@@ -24,6 +24,12 @@ class StoriesPage extends React.Component {
   componentDidMount() {
     this.props.fetchStories(this.props.projectId);
   }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.projectId !== this.props.projectId) {
+      this.props.fetchStories(this.props.projectId);
+    }
+  }
   render() {
     let { myWork, backlog, icebox, doneStories } = this.state;
     let { currentUser, projectId} = this.props;

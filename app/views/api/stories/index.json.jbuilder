@@ -16,7 +16,7 @@ json.backlog do
   backlog.each do |story|
     json.set! story.id do
       json.extract! story, :id, :title, :description, :story_type, :story_state, :priority, :points
-      json.assignedUserId story.story_assigned.assigned_user_id if story.story_assigned
+      json.assignedUser story.user_assigned.username if story.story_assigned
       json.author story.story_owner.username
     end
   end
@@ -26,7 +26,7 @@ json.icebox do
   icebox.each do |story|
     json.set! story.id do
       json.extract! story, :id, :title, :description, :story_type, :story_state, :priority, :points
-      json.assignedUserId story.story_assigned.assigned_user_id if story.story_assigned
+      json.assignedUser story.user_assigned.username if story.story_assigned
       json.author story.story_owner.username
     end
   end
@@ -36,7 +36,7 @@ json.finished do
   finished.each do |story|
     json.set! story.id do
       json.extract! story, :id, :title, :description, :story_type, :story_state, :priority, :points, :updated_at
-      json.assignedUserId story.story_assigned.assigned_user_id if story.story_assigned
+      json.assignedUser story.user_assigned.username if story.story_assigned
       json.author story.story_owner.username
     end
   end
@@ -46,7 +46,7 @@ json.myWork do
   @user_assigned_stories.each do |story|
     json.set! story.id do
       json.extract! story, :id, :title, :description, :story_type, :story_state, :priority, :points
-      json.assignedUserId story.story_assigned.assigned_user_id
+      json.assignedUser story.user_assigned.username
       json.author story.story_owner.username
 
       # json.order do

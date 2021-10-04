@@ -1,4 +1,4 @@
-import { RECEIVE_ALL_STORIES, RECEIVE_STORY, REMOVE_STORY } from "../../../actions/stories";
+import { RECEIVE_ALL_STORIES, RECEIVE_BACKLOG_ASSIGNMENT, RECEIVE_STORY, REMOVE_STORY } from "../../../actions/stories";
 
 const backlogReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -15,8 +15,11 @@ const backlogReducer = (state = {}, action) => {
         return newState;
       }
     case REMOVE_STORY:
-      delete newState[action.storyId]
-      return newState
+      delete newState[action.storyId];
+      return newState;
+    case RECEIVE_BACKLOG_ASSIGNMENT:
+      newState[action.story.id] = action.story;
+      return newState;
     default:
       return state;
   }
