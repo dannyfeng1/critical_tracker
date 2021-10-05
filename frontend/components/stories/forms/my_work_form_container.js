@@ -1,12 +1,13 @@
 import { connect } from "react-redux";
-import { assignStory, clearStoryErrors, createNewStory } from "../../../actions/stories";
+import { clearStoryErrors, createNewStory } from "../../../actions/stories";
 import StoryForm from "./story_form";
 
 const mapStateToProps = (state, ownProps) => ({
   priority: true,
   currentUser: state.session.currentUser,
   projectId: ownProps.projectId,
-  formType: "MyWork"
+  formType: "MyWork", 
+  errors: state.ui.errors.storyErrors
 })
 
 const mapDispatchToProps = dispatch => ({

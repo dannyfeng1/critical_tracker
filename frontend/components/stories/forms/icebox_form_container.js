@@ -7,7 +7,8 @@ const mapStateToProps = (state, ownProps) => ({
   currentUser: state.entities.users[state.session.currentUser],
   projectId: ownProps.projectId,
   formType: "Icebox",
-  teamMembers: Object.values(state.entities.users)
+  teamMembers: Object.values(state.entities.users),
+  errors: state.ui.errors.storyErrors
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -6,7 +6,8 @@ const mapStateToProps = (state, ownProps) => ({
   story: ownProps.story,
   currentUser: state.entities.users[state.session.currentUser].username,
   teamMembers: Object.values(state.entities.users),
-  formType: ownProps.formType
+  formType: ownProps.formType,
+  errors: state.ui.errors.storyErrors
 })
 
 const mapDispatchToProps = dispatch => ({

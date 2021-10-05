@@ -30,6 +30,11 @@ class EditStoryForm extends React.Component {
     return e => this.setState({[field]: e.target.value})
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
+
   render() {
     let { story, currentUser } = this.props;
     let { id, title, description, story_type, points, assign_to, story_state } = this.state;
@@ -78,6 +83,9 @@ class EditStoryForm extends React.Component {
               </label>
             <button onClick={this.handleSubmit}>Save</button>
             <button onClick={() => this.props.deleteStory(story.id)}>Delete</button>
+            <ul>
+              {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
+            </ul>
           </form>
         </div>
       )

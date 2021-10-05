@@ -25,11 +25,12 @@ class StoryForm extends React.Component {
     e.preventDefault();
     if (this.props.formType === "MyWork" || this.state.assign_to === this.props.currentUser.username) {
       this.props.createStory(this.state)
-      .then(action => this.props.assignStory(action.story.id))
+        .then(action => this.props.assignStory(action.story.id))
+        .then(() => this.props.clearErrors())
     } else {
-      this.props.createStory(this.state);
+      this.props.createStory(this.state)
+      .then(() => this.props.clearErrors())
     }
-    this.props.clearErrors();
   }
   
   update(field) {
@@ -82,6 +83,9 @@ class StoryForm extends React.Component {
             <textarea placeholder="Enter a desciption for this story" id="" cols="30" rows="5" onChange={this.update("description")} value={description}></textarea>
           </label>
           <button onClick={this.handleSubmit}>Create Story</button>
+          <ul>
+              {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
+          </ul>
         </form>
       </div>
     )
