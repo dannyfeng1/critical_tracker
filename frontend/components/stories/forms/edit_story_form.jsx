@@ -50,10 +50,10 @@ class EditStoryForm extends React.Component {
     let priorityInput = null;
     if (this.props.formType === "MyWork") {
       priorityInput = (
-        <label>Prioritize:
+        <div>Prioritize:
           <input type="radio" name="priority" checked={this.state.priority} onClick={() => this.setState({priority: true})}/> Yes
           <input type="radio" name="priority" checked={!this.state.priority} onClick={() => this.setState({priority: false})}/> No
-        </label>
+        </div>
       )
     }
 

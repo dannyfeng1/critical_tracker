@@ -8,15 +8,14 @@ class NavBar extends React.Component {
     let { currentUser, logout } = this.props;
 
     let buttons = null;
-    let searchBar = null;
+    let username = null;
     if (currentUser) {
       buttons = (
         <button onClick={() => logout()}>Log Out</button>
       )
-      searchBar = (
-        <p>Search Bar</p>
-      )
+      username = (<p>{currentUser.username}</p>)
     }
+
     return (
     <header id="nav-bar">
       <div id="logo-name">
@@ -29,7 +28,7 @@ class NavBar extends React.Component {
         </Link>
       </div>
       <div id="nav-bar-items">
-        {searchBar}
+        {username}
         {/* search bar for projects on dashboard page and stories on projects page*/}
         {buttons}
       </div>
