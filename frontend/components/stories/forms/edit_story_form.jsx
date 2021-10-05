@@ -4,7 +4,7 @@ import StoryDetails from "../story_details";
 class EditStoryForm extends React.Component {
   constructor(props) {
     super(props);
-    let { title, description, story_type, assignedUser, id, points, storyState} = this.props.story
+    let { title, description, story_type, assignedUser, id, points, storyState, priority} = this.props.story
     this.state = {
       id: id,
       title: title,
@@ -12,7 +12,8 @@ class EditStoryForm extends React.Component {
       story_type: story_type,
       points: points,
       assign_to: assignedUser,
-      story_state: storyState
+      story_state: storyState,
+      priority: priority
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -21,13 +22,16 @@ class EditStoryForm extends React.Component {
     e.preventDefault();
     console.log(this.state)
     this.props.updateStory(this.state)
-    if (this.state.assign_to === this.props.currentUser && this.props.formType !== "MyWork") {
-      this.props.formType === "Backlog" ? this.props.assignBacklog(this.state.id) : this.props.assignIcebox(this.state.id)
-    }
+    .then(action => {
+      if (this.state.assign_to === this.props.currentUser && this.props.formType !== "MyWork") {
+        this.props.formType === "Backlog" ? this.props.assignBacklog(this.state.id) : this.props.assignIcebox(this.state.id)
+      } else {
+        action.story.priority ? this.props.assignBacklog(action.story.id) : this.props.assignIcebox(action.story.id)
+      }
+    }).then(() => this.props.clearErrors())
     // } else if (this.props.formType === "MyWork" && this.state.assign_to === this.props.currentUser) {
     //   // this.props.assignToMyWork(this.state.id)
     // }
-      this.props.clearErrors();
   }
 
   update(field) {
@@ -42,6 +46,16 @@ class EditStoryForm extends React.Component {
   render() {
     let { story, currentUser } = this.props;
     let { id, title, description, story_type, points, assign_to, story_state } = this.state;
+
+    let priorityInput = null;
+    if (this.props.formType === "MyWork") {
+      priorityInput = (
+        <label>Prioritize:
+          <input type="radio" name="priority" checked={this.state.priority} onClick={() => this.setState({priority: true})}/> Yes
+          <input type="radio" name="priority" checked={!this.state.priority} onClick={() => this.setState({priority: false})}/> No
+        </label>
+      )
+    }
 
     if (story.author === currentUser) {
       return (
@@ -82,6 +96,7 @@ class EditStoryForm extends React.Component {
                   <option value={4}>4 Points</option>
                 </select>
               </label>
+              {priorityInput}
               <label>Description:
                 <textarea placeholder="Description" id="" cols="30" rows="5" onChange={this.update("description")} value={description}></textarea>
               </label>

@@ -26,7 +26,7 @@ class StoryForm extends React.Component {
     e.preventDefault();
     if (this.props.formType === "MyWork" || this.state.assign_to === this.props.currentUser.username) {
       this.props.createStory(this.state)
-        .then(action => this.props.assignStory(action.story.id))
+        .then(action => action.story.priority ? this.props.assignBacklog(action.story.id) : this.props.assignIcebox(action.story.id))
         .then(() => this.props.clearErrors())        
     } else {
       this.props.createStory(this.state)
@@ -42,8 +42,18 @@ class StoryForm extends React.Component {
   render() {
     if (this.display === false) return null;
     let { title, description, story_type, points, assign_to } = this.state;
+    console.log(this.state)
     
     let assignInput = null;
+    let priorityInput = null;
+    if (this.props.formType === "MyWork") {
+      priorityInput = (
+        <label>Prioritize:
+          <input type="radio" name="priority" onClick={() => this.setState({priority: true})}/> Yes
+          <input type="radio" name="priority" onClick={() => this.setState({priority: false})}/> No
+        </label>
+      )
+    }
     if (this.props.formType !== "MyWork") {
       assignInput = (
         <label>Assign to:
@@ -63,7 +73,7 @@ class StoryForm extends React.Component {
           <label>Title:
             <input type="text" onChange={this.update("title")} value={title}/>
           </label>
-          <label>Label:
+          <label>Story Type:
             <select onChange={this.update("story_type")} value={story_type}>
               <option value=" " >Select an option</option>
               <option value="Features">Features</option>
@@ -82,6 +92,7 @@ class StoryForm extends React.Component {
               <option value={4}>4 Points</option>
             </select>
           </label>
+          {priorityInput}
           <label>Description:
             <textarea placeholder="Enter a desciption for this story" id="" cols="30" rows="5" onChange={this.update("description")} value={description}></textarea>
           </label>
