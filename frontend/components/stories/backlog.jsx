@@ -10,13 +10,6 @@ class Backlog extends React.Component {
     };
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.backlog === this.props.backlog) {
-    } else {
-      this.setState({createForm: false});
-    }
-  }
-
   render() {
     if (!this.props.presence) {
       return null;

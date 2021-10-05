@@ -8,7 +8,7 @@ const iceboxReducer = (state = {}, action) => {
     case RECEIVE_ALL_STORIES:
       return action.stories.icebox ||= {}
     case RECEIVE_STORY:
-      if (action.story.storyState === "Finished") {
+      if (action.story.storyState === "Finished" || action.story.priority === true) {
         delete newState[action.story.id]
         return newState
       }

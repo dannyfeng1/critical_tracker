@@ -10,11 +10,11 @@ class MyWork extends React.Component {
     };
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.myWork !== this.props.myWork) {
-      this.setState({createForm: false});
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.myWork !== this.props.myWork) {
+  //     this.setState({createForm: false});
+  //   }
+  // }
 
   render() {
     if (!this.props.presence) {

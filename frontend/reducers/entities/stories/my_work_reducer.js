@@ -1,4 +1,4 @@
-import { RECEIVE_ALL_STORIES, REMOVE_STORY, RECEIVE_BACKLOG_ASSIGNMENT, RECEIVE_ICEBOX_ASSIGNMENT, RECEIVE_STORY } from "../../../actions/stories";
+import { RECEIVE_ALL_STORIES, REMOVE_STORY, RECEIVE_MY_WORK_ASSIGNMENT, RECEIVE_BACKLOG_ASSIGNMENT, RECEIVE_ICEBOX_ASSIGNMENT, RECEIVE_STORY } from "../../../actions/stories";
 
 const myWorkReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -8,6 +8,9 @@ const myWorkReducer = (state = {}, action) => {
     case RECEIVE_ALL_STORIES:
       return action.stories.myWork ||= {};
     case RECEIVE_ICEBOX_ASSIGNMENT:
+      newState[action.story.id] = action.story;
+      return newState;   
+    case RECEIVE_MY_WORK_ASSIGNMENT:
       newState[action.story.id] = action.story;
       return newState;
     case RECEIVE_BACKLOG_ASSIGNMENT:

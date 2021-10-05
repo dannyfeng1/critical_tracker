@@ -10,11 +10,11 @@ class Icebox extends React.Component {
     };
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.icebox !== this.props.icebox) {
-      this.setState({createForm: false});
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.icebox !== this.props.icebox) {
+  //     this.setState({createForm: false});
+  //   }
+  // }
 
   render() {
     if (!this.props.presence) {

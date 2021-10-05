@@ -14,6 +14,7 @@ class StoryForm extends React.Component {
       project_id: this.props.projectId,
       assign_to: "-"
     };
+    this.display = true;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -26,11 +27,12 @@ class StoryForm extends React.Component {
     if (this.props.formType === "MyWork" || this.state.assign_to === this.props.currentUser.username) {
       this.props.createStory(this.state)
         .then(action => this.props.assignStory(action.story.id))
-        .then(() => this.props.clearErrors())
+        .then(() => this.props.clearErrors())        
     } else {
       this.props.createStory(this.state)
       .then(() => this.props.clearErrors())
     }
+    
   }
   
   update(field) {
@@ -38,6 +40,7 @@ class StoryForm extends React.Component {
   }
 
   render() {
+    if (this.display === false) return null;
     let { title, description, story_type, points, assign_to } = this.state;
     
     let assignInput = null;
