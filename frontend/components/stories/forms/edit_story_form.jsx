@@ -104,7 +104,7 @@ class EditStoryForm extends React.Component {
             <button onClick={this.handleSubmit}>Save</button>
             <button onClick={() => this.props.deleteStory(story.id)}>Delete</button>
             <ul>
-              {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
+              {this.props.errors.map((error, i) => <li className="errors" key={i}>{error}</li>)}
             </ul>
           </form>
         </div>

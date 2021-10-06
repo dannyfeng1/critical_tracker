@@ -98,7 +98,7 @@ class StoryForm extends React.Component {
           </label>
           <button onClick={this.handleSubmit}>Create Story</button>
           <ul>
-              {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
+              {this.props.errors.map((error, i) => <li className="errors" key={i}>{error}</li>)}
           </ul>
         </form>
       </div>

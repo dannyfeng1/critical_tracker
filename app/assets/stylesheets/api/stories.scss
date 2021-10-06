@@ -6,34 +6,54 @@
   display: flex;
   justify-content: start;
   width: 100vw;
-  height: 91vh;
+  height: 88vh;
   background-color: rgb(83, 81, 81);
 
   #stories-sidebar {
     width: 14vw;
     // padding-left: 30px;
-    background-color: teal;
+    background-color: rgb(26, 24, 24);
+    color: rgb(121, 116, 116);
     border: 2px solid slategrey;
+
+    .selected {
+      color: rgb(80, 153, 212);
+    }
 
     li {
       padding-left: 30px;
-      font-size: xx-large;
-      padding-top: 30px;
+      font-size: x-large;
+      font-weight: bold;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid whitesmoke;
+      text-align: center;
+      display: flex;
+
+      span {
+        padding-right: 5px;
+      }
     }
+
+    li:hover {
+      cursor: pointer;
+    }
+
   }
 
   #stories-containers {
     display: flex;
     flex-direction: row;
-    height: 91vh;
-    width: 85vw;
+    height: 88vh;
+    width: 86vw;
     justify-content: flex-start;
+    
 
     .story-box {
-      padding-top: 30px;
+      // padding-top: 30px;
       width: inherit;
       // padding-right: 40px;
-      background-color: teal;
+      background-color: rgb(37, 35, 35);
       border: 2px solid slategrey;
       overflow: auto;
 
@@ -67,12 +87,34 @@
       .story-container-header {
         display: flex;
         justify-content: space-between;
+        background-color: rgb(37, 35, 35);
+        padding: 10px;
+        font-weight: bold;
+        color: rgb(167, 161, 161);
       }
 
       .story-item-container {
         padding: 5px;
         background-color: whitesmoke;
-        border: 1px solid lightgray
+        border: 1px solid lightgray;
+        display: flex;
+        justify-content: space-between;
+
+        button {
+          width: 60px;
+          height: 24px;
+        }
+      }
+
+      .story-item-container:hover {
+        cursor: pointer;
+      }
+
+      .Icebox {
+        background-color: rgb(174, 221, 252);
+      }
+      .current-user {
+        background-color: rgb(236, 224, 208);
       }
     }
   }

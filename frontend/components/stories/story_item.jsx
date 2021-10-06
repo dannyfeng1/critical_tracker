@@ -42,15 +42,16 @@ class StoryItem extends React.Component {
   }
 
   render() {
-    let {storyType, title, assignedUser, storyState} = this.props.story;
+    let {storyType, title, assignedUser, storyState, author } = this.props.story;
+    let { formType, currentUser } = this.props
 
     let assignmentButton = null;
     if (!assignedUser) {
-      if (this.props.formType === "Icebox") {
+      if (formType === "Icebox") {
         assignmentButton = (
           <button onClick={(id) =>this.props.iceboxAssign(id)}>Accept</button>
         )
-      } else if (this.props.formType === "Backlog") {
+      } else if (formType === "Backlog") {
         assignmentButton = (
           <button onClick={(id) =>this.props.backlogAssign(id)}>Accept</button>
         )
@@ -64,8 +65,8 @@ class StoryItem extends React.Component {
 
     if (this.state.details === false ) {
       return (
-        <div className="story-item-container">
-          <div onClick={this.toggleDetails} className="story-item">
+        <div onClick={this.toggleDetails} className={currentUser === author ? `story-item-container current-user ${formType}` : `story-item-container ${formType}`}>
+          <div className="story-item" >
             <h1>{storyType + ":" + ` ${title}`}</h1>
           </div>
           {assignmentButton}

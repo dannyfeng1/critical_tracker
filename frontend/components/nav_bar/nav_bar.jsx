@@ -24,7 +24,9 @@ class NavBar extends React.Component {
         </Link>
         <Link to="/">
           CriticalTracker
-          {/* Going to be a drop down project links/create project form */}
+        </Link>
+        <Link to="/">
+          <span class="material-icons">home</span>
         </Link>
       </div>
       <div id="nav-bar-items">

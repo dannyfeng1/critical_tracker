@@ -112,6 +112,7 @@ body, html {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 5px;
 }
 
 #splash-page {
@@ -132,6 +133,8 @@ body, html {
     align-self: center;
     flex-direction: column;
     font-size: large;
+    border: 1px solid grey;
+    
     strong {
       font-size: x-large;
       font-weight: bold;
@@ -166,6 +169,8 @@ body, html {
     padding-top: 20px;
     padding-bottom: 20px;
     align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
     
     div {
       width: 400px;

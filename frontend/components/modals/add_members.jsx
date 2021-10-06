@@ -47,7 +47,7 @@ class AddMembersForm extends React.Component {
           <input type="text" placeholder="Enter a username to add to this project's team" value={this.state.username} onChange={this.update("username")}/>
           <div className="buttons-list">
             <button className="submit" onClick={this.handleSubmit} >Add to Team</button>
-            <button onClick={this.props.closeModal}>Cancel</button>
+            <button onClick={this.props.closeModal}>Close</button>
           </div>
           {messages.map(message => <p style={{color: color}}>{message}</p>)}
         </form>

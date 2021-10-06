@@ -68,7 +68,7 @@
     }
   }
 
-  ul div {
+  .project-item {
     background-color: snow;
     margin-left: 5%;
     width: 200px;
@@ -90,6 +90,14 @@
       width: 100%;
       color: rgb(26, 108, 185);
     }
+  }
+
+  .project-buttons {
+    padding-top: 20px;
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    vertical-align: bottom;
   }
 }
 
