@@ -27,7 +27,7 @@ class StoryForm extends React.Component {
     if (this.props.formType === "MyWork" || this.state.assign_to === this.props.currentUser.username) {
       this.props.createStory(this.state)
         .then(action => action.story.priority ? this.props.assignBacklog(action.story.id) : this.props.assignIcebox(action.story.id))
-        .then(() => this.props.clearErrors())        
+        .then(() => this.props.clearErrors())    
     } else {
       this.props.createStory(this.state)
       .then(() => this.props.clearErrors())

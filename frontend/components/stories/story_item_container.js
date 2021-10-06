@@ -2,11 +2,9 @@ import { connect } from "react-redux";
 import { assignBacklogStory, assignIceboxStory, updateStory } from "../../actions/stories";
 import StoryItem from "./story_item";
 
-const mapStateToProps = (state, ownProps) => {
-    return ({
-      // assignedUser: state.entities.users[ownProps.story.assignedUserId]
-    })
-}
+const mapStateToProps = (state, ownProps) => ({
+    currentUser: state.entities.users[state.session.currentUser].username
+})
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   iceboxAssign: () => dispatch(assignIceboxStory(ownProps.story.id)),

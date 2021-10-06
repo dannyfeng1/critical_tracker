@@ -2,10 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body, html {
-  background-color: rgb(201, 223, 236);
   width: 100%;
   height: 100%;
   box-sizing: border-box;
+  background-image: url("https://www.designbolts.com/wp-content/uploads/2014/03/Light-Blue-blur-background1.jpg");
 }
 
 #nav-bar {
@@ -24,6 +24,9 @@ body, html {
   a {
     text-decoration: none;
     color: whitesmoke;
+  }
+  img {
+    margin-left: 10px;
   }
 }
 
@@ -76,13 +79,10 @@ body, html {
 #signup-login {
   position: absolute;
   // flex-direction: column;
-  display: flex;
   z-index: 1;
-  width: 100%;
   top: 0%;
-  margin-top: -5px;
-  justify-content: right;
-  // margin-right: 10px;
+  left: 82%;
+  margin-top: -1.3%;
 }
 
 #signup-login button {
@@ -93,7 +93,7 @@ body, html {
   color: #fff;
   padding: 4px 2px;
   margin-top: 12px;
-  margin-right: 3px;
+  margin-right: 5px;
   text-align: center;
   border: 0px;
   width: 100px;
@@ -114,3 +114,72 @@ body, html {
   align-items: center;
 }
 
+#splash-page {
+  display: flex;
+  justify-self: center;
+  flex-direction: column;
+  background-image: url("https://www.designbolts.com/wp-content/uploads/2014/03/Light-Blue-blur-background1.jpg");
+  height: 92vh;
+  img {
+    width: 350px;
+    height: auto
+  }
+
+  .wide-splash {
+    width: 600px;
+    background-color: whitesmoke;
+    align-items: center;
+    align-self: center;
+    flex-direction: column;
+    font-size: large;
+    strong {
+      font-size: x-large;
+      font-weight: bold;
+      padding-bottom: 5px;
+    }
+    p {
+      text-align: center;
+    }
+  }
+  h1 {
+    display: flex;
+    margin-top: 10px;
+    height: 100px;
+    width: 500px;
+    align-self: center;
+    font-size: xx-large;
+    justify-content: center;
+    text-shadow: -2px 2px 0px lightgrey;
+    background-color: whitesmoke;
+    align-items: center;
+  }
+
+  strong {
+    font-size: x-large;
+    font-weight: bold;
+    padding-bottom: 5px;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    align-items: center;
+    
+    div {
+      width: 400px;
+      height: auto;
+      background-color: whitesmoke;
+      border: 1px solid grey;
+      font-size: x-large;
+      text-align: center;
+      flex-direction: column;
+    }
+  }
+  .image-placeholder {
+    height: 200px;
+    width: 300px;
+    background-color: peachpuff;
+  }
+}

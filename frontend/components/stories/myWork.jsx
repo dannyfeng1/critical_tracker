@@ -1,6 +1,7 @@
 import React from 'react';
 import MyWorkFormcontainer from './forms/my_work_form_container';
 import StoryItemContainer from './story_item_container';
+import MyWorkStories from './my_work_stories';
 
 class MyWork extends React.Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class MyWork extends React.Component {
         <div className="story-list">
           {myWork.map(story => <StoryItemContainer key={story.id} story={story} formType="MyWork"/>)}
         </div>
+        {/* <MyWorkStories myWork={myWork}/> */}
       </div>
     )
   }

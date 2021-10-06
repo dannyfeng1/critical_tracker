@@ -11,23 +11,26 @@ const myWorkReducer = (state = {}, action) => {
       newState[action.story.id] = action.story;
       return newState;   
     case RECEIVE_MY_WORK_ASSIGNMENT:
-      newState[action.story.id] = action.story;
-      return newState;
-    case RECEIVE_BACKLOG_ASSIGNMENT:
-      newState[action.story.id] = action.story;
-      return newState;
-    case RECEIVE_STORY:
       if (action.story.currentUser === action.story.assignedUser) {
         newState[action.story.id] = action.story;
-        return newState;
-      // } else if (action.story.currentUser !== action.story.assignedUser) {
-      //   return newState;
-      } else if (action.story.storyState === "Finished" || action.story.currentUser !== action.story.assignedUser) {
+      } else {
+        delete newState[action.story.id]
+      }
+      return newState;
+    case RECEIVE_BACKLOG_ASSIGNMENT:
+      if (action.story.currentUser === action.story.assignedUser) {
+        newState[action.story.id] = action.story;
+      } else {
+        delete newState[action.story.id]
+      }
+      return newState;
+    case RECEIVE_STORY:
+      if (action.story.storyState === "Finished" || action.story.currentUser !== action.story.assignedUser) {
         delete newState[action.story.id];
         return newState;
-      // } else if (action.story.storyState !== "Finished") {
-      //   newState[action.story.id] = action.story;
-        // return newState;
+      } else if (action.story.currentUser === action.story.assignedUser) {
+        newState[action.story.id] = action.story;
+        return newState;
       }
     case REMOVE_STORY:
       delete newState[action.storyId]

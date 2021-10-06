@@ -24,18 +24,20 @@ class StoryItem extends React.Component {
   }
 
   finishStory() {
-    let { story, updateStory } = this.props;
+    let { story, updateStory, currentUser } = this.props;
     updateStory({
       id: story.id,
-      story_state: "Finished"
+      story_state: "Finished",
+      assign_to: currentUser
     })
   }
 
   startStory() {
-    let { story, updateStory } = this.props;
+    let { story, updateStory, currentUser } = this.props;
     updateStory({
       id: story.id,
-      story_state: "Started"
+      story_state: "Started",
+      assign_to: currentUser
     })
   }
 

@@ -45,7 +45,10 @@
     }
   }
 
-  
+  a {
+    text-decoration: none;
+  }
+
   ul {
     width: 65%;
     position: absolute;
@@ -53,14 +56,15 @@
     padding-left: 16.5%;
     padding-right: 18.5%;
     background-color: whitesmoke;
-    // height: 100vh;
+    height: 80vh;
     display: flex;
     flex-wrap: wrap;
+    overflow-y: auto;
     
     h2 {
       font-size: x-large;
       margin-bottom: 1%;  
-      padding-bottom: 1%;
+      padding-bottom: 30px;
     }
   }
 
@@ -80,9 +84,11 @@
     h2 {
       // height: 30%;
       width: 100%;
+      color: rgb(26, 108, 185);
     }
     p {
       width: 100%;
+      color: rgb(26, 108, 185);
     }
   }
 }
