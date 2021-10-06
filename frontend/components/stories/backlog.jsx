@@ -18,12 +18,7 @@ class Backlog extends React.Component {
     let { backlog, projectId } = this.props
     return (
       <div className="story-box">
-        <div className="story-container-header">
-          <h1>Backlog</h1>
-          {this.state.createForm ? null : <button onClick={() => this.setState({createForm: true})}>Create Story</button>}
-          {this.state.createForm ? <button onClick={() => this.setState({createForm: false})}>Cancel</button> : null }
-        </div>
-        {this.state.createForm ? <BacklogFormContainer projectId={projectId}/> : null}
+        <BacklogFormContainer projectId={projectId}/>
         <div className="story-list">
           {backlog.map(story => <StoryItemContainer key={story.id} story={story} formType="Backlog"/>)}
         </div>

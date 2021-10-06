@@ -76,7 +76,7 @@ class StoryItem extends React.Component {
     } else {
       return (
         <div className="story-item-card">
-          <button onClick={this.toggleDetails}>Collapse</button>
+          <button className="collapse" onClick={this.toggleDetails}>Collapse</button>
           <EditStoryFormContainer formType={this.props.formType} story={this.props.story}/>
         </div>
       )

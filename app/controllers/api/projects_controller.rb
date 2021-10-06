@@ -26,13 +26,11 @@ class Api::ProjectsController < ApplicationController
   end
 
   def update
-    @project = Project.find_by(id: params[:id])
+    @project = Project.find_by(id: params[:project][:id])
 
     if @project.nil?
       render json: ["Project does not exist."], status: 404
-    end
-
-    if @project.update(project_params)
+    elsif @project.update(project_params)
       render :show
     else
       render json: @project.errors.full_messages, status: 401
@@ -51,6 +49,6 @@ class Api::ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:title, :description, :project_owner_id)
+    params.require(:project).permit(:id, :title, :description, :project_owner_id)
   end
 end

@@ -11,7 +11,8 @@ const projectsReducer = (state = {}, action) => {
       newState[action.project.id] = action.project;
       return newState;
     case REMOVE_PROJECT:
-      delete newState[action.projectId]
+      delete newState[action.projectId];
+      return newState;
     default:
       return state;
   }

@@ -23,7 +23,7 @@ class ProjectItem extends React.Component {
           <Link to={`/projects/${project.id}/members`} >
             <span className="material-icons">groups</span>
           </Link>         
-           <Link to={`/projects/${project.id}/settings`} >
+           <Link to={`/projects/${project.id}/information`} >
             <span className="material-icons">settings</span>
           </Link>
         </p>

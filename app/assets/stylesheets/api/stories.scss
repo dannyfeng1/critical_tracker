@@ -37,6 +37,8 @@
 
     li:hover {
       cursor: pointer;
+      background-color: rgb(61, 58, 58);
+
     }
 
   }
@@ -50,12 +52,29 @@
     
 
     .story-box {
-      // padding-top: 30px;
       width: inherit;
-      // padding-right: 40px;
       background-color: rgb(37, 35, 35);
       border: 2px solid slategrey;
       overflow: auto;
+
+      .create-story-buttons {
+        padding-top: 1%;
+        padding-bottom: 1%;
+        margin-right: 1%;
+        width: 20%;
+        border: none;
+        border-radius: 10px;
+        color: whitesmoke;
+        background-color: transparent;
+        font-size: large;
+      }
+
+      .create-story-buttons:hover {
+        cursor: pointer;
+        background-color: rgb(196, 136, 46);
+        
+      }
+
 
       .story-create-container, .edit-story-container {
         form {
@@ -80,17 +99,26 @@
           }
         }
       }
+
       h1 {
         font-size: x-large;
+        padding: 10px;
       }
       
       .story-container-header {
-        display: flex;
-        justify-content: space-between;
         background-color: rgb(37, 35, 35);
-        padding: 10px;
+        padding-left: 10px;
+        padding-top: 5px;
         font-weight: bold;
         color: rgb(167, 161, 161);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        button {
+
+        }
+
       }
 
       .story-item-container {
@@ -103,11 +131,24 @@
         button {
           width: 60px;
           height: 24px;
+          align-self: center;
         }
       }
 
       .story-item-container:hover {
         cursor: pointer;
+        opacity: 90%;
+      }
+
+      .story-item-card {
+        background-color: whitesmoke;
+
+        .collapse {
+          background-color: rgb(88, 140, 219);
+          margin-top: 10px;
+          position: relative;
+          left: 85%;
+        }
       }
 
       .Icebox {

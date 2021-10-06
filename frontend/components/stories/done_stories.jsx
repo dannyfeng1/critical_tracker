@@ -14,8 +14,8 @@ class DoneStories extends React.Component {
     let { finished } = this.props
     return (
       <div className="story-box">
-        <div key="1" className="story-container-header">
-          <h1>Done</h1>
+        <div className="story-container-header">
+          <h1 id="done-header">Done</h1>
         </div>
         <div className="story-list">
           {finished.map(story => <StoryItemContainer key={story.id} story={story}/>)}

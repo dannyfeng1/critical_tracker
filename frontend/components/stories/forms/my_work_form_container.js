@@ -6,8 +6,9 @@ const mapStateToProps = (state, ownProps) => ({
   priority: true,
   currentUser: state.entities.users[state.session.currentUser],
   projectId: ownProps.projectId,
-  formType: "MyWork", 
-  errors: state.ui.errors.storyErrors
+  formType: "My Work", 
+  errors: state.ui.errors.storyErrors,
+  display: true
 })
 
 const mapDispatchToProps = dispatch => ({

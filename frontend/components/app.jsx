@@ -11,6 +11,8 @@ import ModalContainer from './modals/modal_container';
 import ProjectContainer from './projects/projects_container';
 import MembersContainer from './projects/members_container';
 import SplashPage from './splash';
+import ProjectInfo from './projects/project_info';
+import EditProjectForm from './projects/project_edit_form';
 
 const App = () => (
   <div>
@@ -19,6 +21,8 @@ const App = () => (
 
     <Switch>
       <ProtectedRoute path="/dashboard" component={Dashboard}/>
+      <ProtectedRoute path="/projects/:projectId/information/edit" component={EditProjectForm}/>
+      <ProtectedRoute path="/projects/:projectId/information" component={ProjectInfo}/>
       <ProtectedRoute path="/projects/:projectId/members" component={MembersContainer}/>
       <ProtectedRoute path="/projects/:projectId" component={ProjectContainer} />
       <AuthRoute path="/signup" component={SignUpFormContainer} />

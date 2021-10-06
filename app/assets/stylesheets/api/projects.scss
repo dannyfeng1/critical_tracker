@@ -80,6 +80,11 @@
     margin-bottom: 2%;
     border: 1px solid lightgray;
     justify-self: center;
+
+    .project-item:hover {
+      cursor: pointer;
+      background-color: rgba(158, 150, 150, 0.856);
+    }
     
     h2 {
       // height: 30%;
