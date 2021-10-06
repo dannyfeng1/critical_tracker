@@ -26,7 +26,7 @@ class NavBar extends React.Component {
           CriticalTracker
         </Link>
         <Link to="/">
-          <span class="material-icons">home</span>
+          <span className="material-icons">home</span>
         </Link>
       </div>
       <div id="nav-bar-items">

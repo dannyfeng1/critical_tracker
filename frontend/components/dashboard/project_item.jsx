@@ -21,10 +21,10 @@ class ProjectItem extends React.Component {
         </Link>
         <p className="project-buttons">
           <Link to={`/projects/${project.id}/members`} >
-            <span class="material-icons">groups</span>
+            <span className="material-icons">groups</span>
           </Link>         
            <Link to={`/projects/${project.id}/settings`} >
-            <span class="material-icons">settings</span>
+            <span className="material-icons">settings</span>
           </Link>
         </p>
       </div>

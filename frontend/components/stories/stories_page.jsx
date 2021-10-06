@@ -39,19 +39,19 @@ class StoriesPage extends React.Component {
         <div id="stories-sidebar">
           <ul>
             <li className={this.state.myWork ? "selected" : ""}onClick={() => this.update("myWork")}>
-              <span class="material-icons">inbox</span>
+              <span className="material-icons">inbox</span>
               <p>My Work</p>
             </li>
             <li className={this.state.backlog ? "selected" : ""}onClick={() => this.update("backlog")}>
-              <span class="material-icons">view_list</span>
+              <span className="material-icons">view_list</span>
               <p>Backlog</p>
             </li>
             <li className={this.state.icebox ? "selected" : ""}onClick={() => this.update("icebox")}>
-              <span class="material-icons">ac_unit</span>
+              <span className="material-icons">ac_unit</span>
               <p>Icebox</p>
               </li>
             <li className={this.state.doneStories ? "selected" : ""}onClick={() => this.update("doneStories")}>
-              <span class="material-icons">done</span>
+              <span className="material-icons">done</span>
               <p>Done</p>
             </li>
           </ul>

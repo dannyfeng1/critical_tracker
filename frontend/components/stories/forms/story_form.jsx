@@ -42,7 +42,6 @@ class StoryForm extends React.Component {
   render() {
     if (this.display === false) return null;
     let { title, description, story_type, points, assign_to } = this.state;
-    console.log(this.state)
     
     let assignInput = null;
     let priorityInput = null;
