@@ -5,6 +5,8 @@ import { fetchMembers } from './actions/projects';
 import Root from './components/root'
 import configureStore from './store/store';
 import { fetchProjectStories } from './actions/stories';
+import { getCurrentUser } from "./actions/session";
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
@@ -28,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.logout = logout
   window.fetchMembers = fetchMembers
   window.fetchProjectStories = fetchProjectStories
+  window.getCurrentUser = getCurrentUser
 
 
   ReactDOM.render(<Root store={store} />, root)

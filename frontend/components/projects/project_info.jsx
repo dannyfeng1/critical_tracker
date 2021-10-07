@@ -41,14 +41,26 @@ class ProjectSettings extends React.Component {
     
     if (!project) return null;
 
-    let deleteConfirmation = null;
+    let deleteConfirmation = <div id="delete-confirm"></div>;
     if (this.state.deleteProject) {
       deleteConfirmation = (
         <div id="delete-confirm">
           <p>Are you sure you want to delete this project?</p>
-          <button onClick={this.handleDelete}>Yes</button>
-          <button onClick={() => this.setState({deleteProject: false})}>No</button>
+          <button className="delete"onClick={this.handleDelete}>Yes</button>
+          <button className="cancel"onClick={() => this.setState({deleteProject: false})}>No</button>
         </div>
+      )
+    }
+
+    let editButtons = null;
+    if (project.projectOwnerId == currentUser) {
+      editButtons = (
+        <div className="edit-buttons">
+        <Link to={`/projects/${project.id}/information/edit`}>
+          <button className="edit">Edit</button>
+        </Link>
+        <button onClick={() => this.setState({deleteProject: true})}>Delete</button>
+      </div>
       )
     }
 
@@ -56,17 +68,22 @@ class ProjectSettings extends React.Component {
         <div id="project-details">
           <div className="project-header">
             <h1 className="project-title">{project.title}</h1>
-            <button onClick={() => this.props.history.push(`/projects/${project.id}`)}>Stories</button>
-            <button onClick={() => this.props.history.push(`/projects/${project.id}/members`)}>Members</button>
-            <button onClick={() => this.props.history.push(`/projects/${project.id}/information`)}>Information</button>
-          </div>
-          <h1>Title: {project.title}</h1>
-          <h2>Description: {project.description}</h2>
-          <Link to={`/projects/${project.id}/information/edit`}>
-            <button>Edit</button>
+            <Link to={`/projects/${project.id}`}>
+            <button>Stories</button>
           </Link>
-          <button onClick={() => this.setState({deleteProject: true})}>Delete</button>
-          {deleteConfirmation}
+          <Link to={`/projects/${project.id}/members`}>
+            <button>Members</button>
+          </Link>          
+          <Link to={`/projects/${project.id}/information`}>
+            <button>Information</button>
+          </Link>
+          </div>
+          <div id="project-info">
+            <h2>{project.title}</h2>
+            <h3>Description: {project.description}</h3>
+            {editButtons}
+            {deleteConfirmation}
+          </div>
         </div>
       )
   }

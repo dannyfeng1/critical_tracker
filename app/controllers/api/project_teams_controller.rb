@@ -1,7 +1,11 @@
 class Api::ProjectTeamsController < ApplicationController
   def show
-    @members = Project.find_by(id: params[:id]).team_members
-    render :show
+    project = Project.find_by(id: params[:id])
+    if project
+      @members = project.team_members
+      render :show
+    else
+      render json: ["Project does not exist or you do not have access."], status: 401
   end
   
   def create

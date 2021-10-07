@@ -1,4 +1,7 @@
 import React from 'react';
+import { Redirect } from 'react-router';
+import { Link } from "react-router-dom";
+
 
 class Members extends React.Component {
   constructor(props) {
@@ -31,13 +34,21 @@ class Members extends React.Component {
       return null;
     }
 
-    return (
+    if (!this.props.currentUser) {
+      return (<Redirect to="/dashboard" />)
+    } else return (
       <div id="members-container">
         <div className="project-header">
           <h1 className="project-title">{project.title}</h1>
-          <button onClick={() => this.props.history.push(`/projects/${project.id}`)}>Stories</button>
-          <button onClick={() => this.props.history.push(`/projects/${project.id}/members`)}>Members</button>
-          <button onClick={() => this.props.history.push(`/projects/${project.id}/information`)}>Information</button>
+            <Link to={`/projects/${project.id}`}>
+              <button>Stories</button>
+            </Link>
+            <Link to={`/projects/${project.id}/members`}>
+              <button>Members</button>
+            </Link>          
+            <Link to={`/projects/${project.id}/information`}>
+              <button>Information</button>
+            </Link>
         </div>
         <header>
           <h1>Team Members</h1>

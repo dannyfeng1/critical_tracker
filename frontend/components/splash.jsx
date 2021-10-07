@@ -20,10 +20,10 @@ const SplashPage = props => {
           <p>Get more work done, more often. Tracker's guided iteration planning helps you break down and prioritize projects into manageable chunks so the team can keep the momentum toward delivering.</p>
         </div>
       </div>
-      <div className="wide-splash">
+      {/* <div className="wide-splash">
         <strong>A better way to develop</strong>
         <p>Succeeding in an evolving tech landscape requires a time-tested process and a tool your team can rely on. Tracker's modern workflow helps your team keep the pace and adapt when needs change.</p>
-      </div>
+      </div> */}
     </div>
   )
 }

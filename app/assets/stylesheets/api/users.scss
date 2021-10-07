@@ -2,27 +2,42 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #signup-container h1{
-  padding-top: 1%;
-  font-size: xx-large;
+  padding-top: 3%;
+  font-size: 70px;
   text-align: center;
   justify-content: center;
 }
 
-
+#login-container {
+  h1 {
+    padding-top: 3%;
+    font-size: 70px;
+  }
+}
 
 .user-form {
-  padding-top: 1%;
+  padding-top: 2%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
+
+
 }
 
 .user-form input {
   margin-top: 5px;
   margin-bottom: 5px;
+  width: 400px;
+  height: 50px;
+  font-size: 30px;
+  border-radius: 5px;
 }
+
+// .user-form input:focus {
+//   border-radius: 4px;
+//   outline: rgb(105, 198, 214);
+// }
 
 .user-form button {
   font-size: 12px;
@@ -33,6 +48,8 @@
   padding: 5px 5px;
   margin: 1%;
   width: 10%;
+  padding-top: 10px;
+  padding-bottom: 10px;
   text-align: center;
   border: 0px;
   cursor: pointer;

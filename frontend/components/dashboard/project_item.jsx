@@ -17,7 +17,6 @@ class ProjectItem extends React.Component {
       <div className="project-item">
         <Link to={`/projects/${project.id}`}>
           <h2>{project.title}</h2>
-          <p>{project.description}</p>
         </Link>
         <p className="project-buttons">
           <Link to={`/projects/${project.id}/members`} >

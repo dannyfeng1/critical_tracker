@@ -5,7 +5,8 @@ import { fetchMembers, getProject } from "../../actions/projects";
 const mapStateToProps = (state, ownProps) => ({
   project: state.entities.projects[ownProps.match.params.projectId],
   projectId: ownProps.match.params.projectId,
-  members: Object.values(state.entities.users)
+  members: Object.values(state.entities.users),
+  currentUser: state.entities.users[state.session.currentUser]
 })
 
 const mapDispatchToProps = dispatch => ({

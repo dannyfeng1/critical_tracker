@@ -13,11 +13,13 @@ import MembersContainer from './projects/members_container';
 import SplashPage from './splash';
 import ProjectInfo from './projects/project_info';
 import EditProjectForm from './projects/project_edit_form';
+import Footer from './footer';
 
 const App = () => (
   <div>
     <NavBarContainer />
     <ModalContainer />
+    <Footer />
 
     <Switch>
       <ProtectedRoute path="/dashboard" component={Dashboard}/>

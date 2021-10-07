@@ -6,6 +6,7 @@ body, html {
   height: 100%;
   box-sizing: border-box;
   background-image: url("https://www.designbolts.com/wp-content/uploads/2014/03/Light-Blue-blur-background1.jpg");
+  font-family: 'Open Sans', sans-serif;
 }
 
 #nav-bar {
@@ -114,15 +115,22 @@ body, html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 5px;
+  padding: 10px;
 }
 
 #splash-page {
   display: flex;
   justify-self: center;
   flex-direction: column;
-  background-image: url("https://www.designbolts.com/wp-content/uploads/2014/03/Light-Blue-blur-background1.jpg");
+  background-image: url("https://assets.pivotaltracker.com/marketing_assets/shared_home/icon-explosion-de3d5d14e83b3f94a5da66b1763f7bb73ec277cc9c69474d1ad9a78fcc9c3c2b.svg") ;
+  background-position: center center;
   height: 92vh;
+  align-items: center;
+
+  #important-splash {
+    font-weight: bold;
+    // margin-top: 1%;
+  }
   img {
     width: 350px;
     height: auto
@@ -182,11 +190,29 @@ body, html {
       font-size: x-large;
       text-align: center;
       flex-direction: column;
+      // padding: 300px;
     }
   }
   .image-placeholder {
     height: 200px;
     width: 300px;
     background-color: peachpuff;
+  }
+}
+
+footer {
+  padding: 2px;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 3vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #256188;
+  a {
+    text-decoration: none;
+    padding: 5px;
+    color: whitesmoke;
   }
 }

@@ -21,7 +21,7 @@ class Api::ProjectsController < ApplicationController
     if @project
       render :show
     else
-      render json: ["Project does not exist or you do not have access."]
+      render json: ["Project does not exist or you do not have access."], status: 401
     end
   end
 

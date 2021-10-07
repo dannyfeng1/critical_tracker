@@ -1,5 +1,8 @@
 import React from 'react';
+import { Redirect } from 'react-router';
 import StoriesPageContainer from '../stories/stories_page_container';
+import { Link } from "react-router-dom";
+
 
 class Project extends React.Component {
   constructor(props) {
@@ -16,16 +19,24 @@ class Project extends React.Component {
     let { project } = this.props;
 
     if (project === undefined) {
-      return null;
+      return <h1 id="unaccessible">This project does not have exist or you do not have access</h1>;
     }
 
-    return (
+    if (!this.props.currentUser) {
+      return <Redirect to="/dashboard" />
+    } else return (
       <div id="project-container">
         <div className="project-header">
           <h1 className="project-title">{project.title}</h1>
-          <button onClick={() => this.props.history.push(`/projects/${project.id}`)}>Stories</button>
-          <button onClick={() => this.props.history.push(`/projects/${project.id}/members`)}>Members</button>
-          <button onClick={() => this.props.history.push(`/projects/${project.id}/information`)}>Information</button>
+          <Link to={`/projects/${project.id}`}>
+            <button>Stories</button>
+          </Link>
+          <Link to={`/projects/${project.id}/members`}>
+            <button>Members</button>
+          </Link>          
+          <Link to={`/projects/${project.id}/information`}>
+            <button>Information</button>
+          </Link>
         </div>
         <StoriesPageContainer project={project} />
       </div>

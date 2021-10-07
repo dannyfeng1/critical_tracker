@@ -7,11 +7,13 @@ class MyProjects extends React.Component {
   }
 
   componentDidMount() {
+    this.props.getCurrentUser();
     this.props.fetchProjects();
   }
 
   render() {
     let { projects, openModal} = this.props
+    
     return (
       <div id="my-projects">
         <header>

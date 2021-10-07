@@ -60,7 +60,7 @@ class StoryItem extends React.Component {
 
     let taskButton = null;
     if (this.props.formType === "MyWork") {
-      storyState === "Unstarted" ? taskButton = (<button onClick={this.startStory}>Start</button>) : taskButton = (<button onClick={this.finishStory}>Finish</button>)
+      storyState === "Unstarted" ? taskButton = (<button className="start" onClick={this.startStory}>Start</button>) : taskButton = (<button className="finish" onClick={this.finishStory}>Finish</button>)
     }
 
     if (this.state.details === false ) {

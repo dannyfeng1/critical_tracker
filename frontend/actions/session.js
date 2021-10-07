@@ -47,3 +47,8 @@ export const logout = () => dispatch => {
       error => dispatch(receiveErrors(error))
     )
 }
+
+export const getCurrentUser = () => dispatch => {
+  return UsersAPI.getCurrentUser()
+    .then((user) => dispatch(receiveCurrentUser(user)))
+}
