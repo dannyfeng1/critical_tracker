@@ -1,9 +1,9 @@
 # README
 ![image](https://user-images.githubusercontent.com/86497399/136598175-90baa2b1-b077-49fe-bd25-7d6efeb630ed.png)
 
-<h1>
+<h2>
 Critical Tracker is a clone of <a href="https://www.pivotaltracker.com/">Pivotal Tracker</a>, a project management tool tailored towards the principles of AGILE development. Critical Tracker offers users the ability to create projects, assemble teams and create stories to aid them in their software development lifecycles. Try out <a href="https://critical-tracker.herokuapp.com/">Critical Tracker</a>!
-</h1>
+</h2>
 
 ## Technologies
 * React/Redux
