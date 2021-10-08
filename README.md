@@ -1,4 +1,30 @@
 # README
 
-<img src="https://cdn0.iconfinder.com/data/icons/esports-wildberry-vol-1/256/Critical_Damage-512.png" width="60px" height= "60px"></img> 
-# Critical Tracker
+<h1>
+Critical Tracker is a clone of <a href="https://www.pivotaltracker.com/">Pivotal Tracker</a>, a project management tool tailored towards the principles of AGILE development. Critical Tracker offers users the ability to create projects, assemble teams and create stories to aid them in their software development lifecycles. Try out <a href="https://critical-tracker.herokuapp.com/">Critical Tracker</a>!
+</h1>
+
+## Technologies
+* React/Redux
+* Javascript
+* Ruby on Rails
+* PostgresSQL
+* HTML/CSS
+
+## Key Features
+
+### User Authentication
+* Users can sign up with a unique email and username.
+* Users can login and retain login sessions.
+
+### Dashboard/Projects
+* Users can create projects in the dashboard.
+* Dashboard displays all of the user's created projects and the projects they are a member of.
+* Users can invite new team members by username in the members tab on the project display page.
+* Users can edit project title/description through the information tab if they are the project owner.
+
+### Stories
+* Users can create stories.
+* Users can assign stories to team members.
+* Users can accept stories that have not been assigned.
+* Once accepted, users can mark stories as started or finished as they work on them.
