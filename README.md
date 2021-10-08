@@ -33,6 +33,20 @@ jbuilder | JavaScript ES6
 * Users can accept stories that have not been assigned.
 * Once accepted, users can mark stories as started or finished as they work on them.
 * Users can edit and delete their own stories
+```
+  def update
+    @story = Story.find_by(id: params[:story][:id])
+    if @story.update(story_params)
+      assigned_user = User.find_by(username: params[:story][:assign_to])
+      @story.story_assigned.destroy if @story.story_assigned  
+      AssignedStory.create(assigned_user_id: assigned_user.id, story_id: @story.id) if assigned_user
+      render :show
+    else
+      render json: @story.errors.full_messages, status: 422
+    end
+  end
+```
+Updating a story with a new user assignment would destroy the old one if present and create a new assignment relation between a story and a user.
 
 ### Future Directions
 * Drag and drop prioritization.
