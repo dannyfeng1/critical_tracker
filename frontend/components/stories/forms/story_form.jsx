@@ -100,7 +100,7 @@ class StoryForm extends React.Component {
             <label>Description:
               <textarea placeholder="Enter a desciption for this story" id="" cols="30" rows="5" onChange={this.update("description")} value={description}></textarea>
             </label>
-            <button onClick={this.handleSubmit}>Create Story</button>
+            <button onClick={this.handleSubmit}>Create</button>
             <ul>
                 {this.props.errors.map((error, i) => <li className="errors" key={i}>{error}</li>)}
             </ul>

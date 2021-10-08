@@ -86,12 +86,14 @@ class EditStoryForm extends React.Component {
                   <option value={4}>4 Points</option>
                 </select>
               </label>
-              {priorityInput}
-              <label>Description:
-                <textarea placeholder="Description" id="" cols="30" rows="5" onChange={this.update("description")} value={description}></textarea>
-              </label>
-            <button onClick={this.handleSubmit}>Save</button>
-            <button onClick={() => this.props.deleteStory(story.id)}>Delete</button>
+            {priorityInput}
+            <label>Description:
+              <textarea placeholder="Description" id="" cols="30" rows="5" onChange={this.update("description")} value={description}></textarea>
+            </label>
+            <div className="buttons-div">
+              <button onClick={this.handleSubmit}>Save</button>
+              <button onClick={() => this.props.deleteStory(story.id)}>Delete</button>
+            </div>
             <ul>
               {this.props.errors.map((error, i) => <li className="errors" key={i}>{error}</li>)}
             </ul>
