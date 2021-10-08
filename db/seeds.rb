@@ -14,8 +14,8 @@ User.destroy_all
 demo_user = User.create(username: "Demo_User", email: "demouser@testing.io", password: "demo123", first_name: "Demo", last_name: "User")
 demo_teammate = User.create(username: "Demo_Teammate", email: "demoteammate@testing.io", password: "demo123", first_name: "Demo", last_name: "Teammate")
 
-crit_tracker = Project.create(title: "Critical Tracker", description: "First full stack project!", project_owner_id: 1)
-demo_proj = Project.create(title: "Demo Project", description: "Test out app here!", project_owner_id: 1)
+crit_tracker = Project.create(title: "Critical Tracker", description: "First full stack project!", project_owner_id: demo_user.id)
+demo_proj = Project.create(title: "Demo Project", description: "Test out app here!", project_owner_id: demo_user.id)
 
 ProjectTeam.create(project_id: crit_tracker.id, user_id: demo_user.id)
 ProjectTeam.create(project_id: demo_proj.id, user_id: demo_user.id)
