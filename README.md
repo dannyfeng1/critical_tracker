@@ -19,12 +19,15 @@ Critical Tracker is a clone of <a href="https://www.pivotaltracker.com/">Pivotal
 * Users can login and retain login sessions.
 
 ### Dashboard/Projects
+![image](https://user-images.githubusercontent.com/86497399/136598781-13061da0-952a-4837-be2f-02545343c1b8.png)
 * Users can create projects in the dashboard.
 * Dashboard displays all of the user's created projects and the projects they are a member of.
 * Users can invite new team members by username in the members tab on the project display page.
 * Users can edit project title/description through the information tab if they are the project owner.
 
 ### Stories
+![image](https://user-images.githubusercontent.com/86497399/136598951-4197d75d-2e64-4613-9385-e76e6a563cc2.png)
+* Stories should filter themselves.
 * Users can create stories.
 * Users can assign stories to team members.
 * Users can accept stories that have not been assigned.
