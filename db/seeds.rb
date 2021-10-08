@@ -65,16 +65,20 @@ Story.create(title: "Loading icon modal",
   story_type: "Chore", story_state: "Unstarted", 
   priority: true, points: 1, story_owner_id: 1, project_id: 1)
 
-Story.create(title: "Project Search Bar", 
+a = Story.create(title: "Project Search Bar", 
   description: "Small search bar on dashboard that filters by project name.", 
   story_type: "Feature", story_state: "Unstarted", 
   priority: false, points: 1, story_owner_id: 1, project_id: 1)
 
-Story.create(title: "Change the font size", 
+b = Story.create(title: "Change the font size", 
   description: "Find a better font for forms.", 
   story_type: "Chore", story_state: "Unstarted", 
   priority: false, points: 1, story_owner_id: 1, project_id: 1)
 
+AssignedStory.create(assigned_user_id: demo_user.id, story_id: a.id)
+AssignedStory.create(assigned_user_id: demo_user.id, story_id: b.id)
+
+  
 Story.create(title: "Errors Not Clearing", 
   description: "Errors should clear on dismount of forms.", 
   story_type: "Bug", story_state: "Finished", 
