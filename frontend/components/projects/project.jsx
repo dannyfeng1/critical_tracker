@@ -19,7 +19,13 @@ class Project extends React.Component {
     let { project } = this.props;
 
     if (project === undefined) {
-      return <h1 id="unaccessible">This project does not have exist or you do not have access</h1>;
+      return (
+        <Link id="unaccessible" to="/">
+          <h1 >This project does not have exist or you do not have access</h1>
+          <div>Click here to go back to the homepage</div>
+        </Link>
+      
+      )
     }
 
     if (!this.props.currentUser) {

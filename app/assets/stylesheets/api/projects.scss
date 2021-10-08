@@ -36,12 +36,14 @@
       border: 0px;
       width: 100px;
       cursor: pointer;
+      border-radius: 4px;
       transition: all 0.3s 0s ease-in-out;
     }
     button:hover {
       transform: scale(1.04, 1);
       background-color: #4897cc;
       text-decoration: none;
+      border-radius: 4px;
     }
   }
 
@@ -357,7 +359,13 @@
 #unaccessible {
   font-size: 20px;
   display: flex;
-  align-self: center;
-  margin-top: 20%;
+  align-items: center;
+  margin-top: 10%;
   justify-content: center;
+  flex-direction: column;
+  text-decoration: none;
+
+  h1 {
+    margin-bottom: 5%;
+  }
 }
