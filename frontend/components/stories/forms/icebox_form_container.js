@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { assignBacklogStory, clearStoryErrors, createNewStory } from "../../../actions/stories";
+import { assignBacklogStory, assignIceboxStory, clearStoryErrors, createNewStory } from "../../../actions/stories";
 import StoryForm from "./story_form";
 
 const mapStateToProps = (state, ownProps) => ({
@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   createStory: story => dispatch(createNewStory(story)),
-  assignStory: (storyId) => dispatch(assignBacklogStory(storyId)),
+  assignIcebox: (storyId) => dispatch(assignIceboxStory(storyId)),
   clearErrors: () => dispatch(clearStoryErrors())
 })
 

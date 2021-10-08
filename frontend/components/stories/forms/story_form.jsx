@@ -34,7 +34,6 @@ class StoryForm extends React.Component {
       .then(() => this.props.clearErrors())
       .then(() => this.setState({display: false}))    
     }
-    
   }
   
   update(field) {

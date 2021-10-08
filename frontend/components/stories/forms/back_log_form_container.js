@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   createStory: story => dispatch(createNewStory(story)),
-  assignStory: storyId => dispatch(assignBacklogStory(storyId)),
+  assignBacklog: storyId => dispatch(assignBacklogStory(storyId)),
   clearErrors: () => dispatch(clearStoryErrors())
 })
 
