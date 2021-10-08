@@ -28,3 +28,8 @@ Critical Tracker is a clone of <a href="https://www.pivotaltracker.com/">Pivotal
 * Users can assign stories to team members.
 * Users can accept stories that have not been assigned.
 * Once accepted, users can mark stories as started or finished as they work on them.
+* Users can edit and delete their own stories
+
+### Future Directions
+* Drag and drop prioritization.
+* Live refresh for responsive team environment.
