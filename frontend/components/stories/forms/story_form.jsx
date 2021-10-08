@@ -80,8 +80,8 @@ class StoryForm extends React.Component {
             <label>Story Type:
               <select onChange={this.update("story_type")} value={story_type}>
                 <option value=" " >Select an option</option>
-                <option value="Features">Features</option>
-                <option value="Bugs">Bugs</option>
+                <option value="Feature">Feature</option>
+                <option value="Bug">Bug</option>
                 <option value="Chore">Chore</option>
                 <option value="Release">Release</option>
               </select>

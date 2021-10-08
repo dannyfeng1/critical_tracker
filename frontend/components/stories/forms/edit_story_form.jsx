@@ -56,8 +56,8 @@ class EditStoryForm extends React.Component {
             </label>
             <label>Label:
               <select onChange={this.update("story_type")} value={story_type}>
-                <option value="Features">Features</option>
-                <option value="Started">Bugs</option>
+                <option value="Feature">Feature</option>
+                <option value="Bug">Bug</option>
                 <option value="Chore">Chore</option>
                 <option value="Release">Release</option>
               </select>

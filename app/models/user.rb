@@ -5,8 +5,8 @@ class User < ApplicationRecord
 
   has_many :projects_owned,
     foreign_key: :project_owner_id,
-    class_name: "Project"
-    # dependent: :destroy
+    class_name: "Project",
+    dependent: :destroy
 
   has_many :teams,
     foreign_key: :user_id,

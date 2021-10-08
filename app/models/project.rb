@@ -12,7 +12,8 @@ class Project < ApplicationRecord
 
   has_many :stories,
     foreign_key: :project_id,
-    class_name: "Story"
+    class_name: "Story",
+    dependent: :destroy
 
   has_many :team_members, 
     through: :users,

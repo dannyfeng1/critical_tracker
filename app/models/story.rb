@@ -12,7 +12,8 @@ class Story < ApplicationRecord
 
   has_one :story_assigned, 
     foreign_key: :story_id,
-    class_name: "AssignedStory"
+    class_name: "AssignedStory",
+    dependent: :destroy
 
   has_one :user_assigned,
     through: :story_assigned,

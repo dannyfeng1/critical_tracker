@@ -6,6 +6,7 @@ class Api::ProjectTeamsController < ApplicationController
       render :show
     else
       render json: ["Project does not exist or you do not have access."], status: 401
+    end
   end
   
   def create

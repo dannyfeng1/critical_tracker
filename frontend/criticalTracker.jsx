@@ -24,13 +24,13 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore();
   }
 
-  window.getState = store.getState
-  window.dispatch = store.dispatch
-  window.login = login
-  window.logout = logout
-  window.fetchMembers = fetchMembers
-  window.fetchProjectStories = fetchProjectStories
-  window.getCurrentUser = getCurrentUser
+  // window.getState = store.getState
+  // window.dispatch = store.dispatch
+  // window.login = login
+  // window.logout = logout
+  // window.fetchMembers = fetchMembers
+  // window.fetchProjectStories = fetchProjectStories
+  // window.getCurrentUser = getCurrentUser
 
 
   ReactDOM.render(<Root store={store} />, root)

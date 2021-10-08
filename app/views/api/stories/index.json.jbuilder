@@ -46,7 +46,7 @@ json.myWork do
   @user_assigned_stories.each do |story|
     json.set! story.id do
       json.extract! story, :id, :title, :description, :story_type, :story_state, :priority, :points
-      json.assignedUser story.user_assigned.username
+      json.assignedUser story.user_assigned.username if story.story_assigned
       json.author story.story_owner.username
 
       # json.order do

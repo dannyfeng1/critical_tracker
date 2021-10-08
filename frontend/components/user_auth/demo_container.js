@@ -4,7 +4,7 @@ import LogIn from './login_form'
 
 const mapStateToProps = state => ({
   userForm: {
-    username: "DemoUser",
+    username: "Demo_User",
     password: "demo123"
   },
   errors: []
