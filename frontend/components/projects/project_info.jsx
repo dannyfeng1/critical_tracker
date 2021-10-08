@@ -17,7 +17,6 @@ const mapDispatchToProps = dispatch => ({
 class ProjectSettings extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props)
     this.state = {
       deleteProject: false
     }
