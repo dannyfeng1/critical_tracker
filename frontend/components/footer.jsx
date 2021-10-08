@@ -3,7 +3,7 @@ import React from 'react'
 const Footer = props => {
   return (
     <footer>
-      <a href="https://github.com/dannyfeng1/pivotal_tracker_clone">
+      <a href="https://github.com/dannyfeng1/critical_tracker">
         <ion-icon name="logo-github"></ion-icon>
         <p>Github</p>
       </a>
