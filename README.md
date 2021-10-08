@@ -6,11 +6,11 @@ Critical Tracker is a clone of <a href="https://www.pivotaltracker.com/">Pivotal
 </h2>
 
 ## Technologies
-* React/Redux
-* Javascript
-* Ruby on Rails
-* PostgresSQL
-* HTML/CSS
+BackEnd | Frontend
+---|:--
+Ruby on Rails | React
+PostgreSQL | Redux
+jbuilder | JavaScript ES6
 
 ## Key Features
 
