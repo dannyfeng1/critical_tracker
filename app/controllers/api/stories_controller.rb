@@ -1,7 +1,12 @@
 class Api::StoriesController < ApplicationController
   def index
     @stories = Story.includes(:story_owner, :user_assigned, :story_assigned).where(project_id: params[:projectId])
-    @user_assigned_stories = Story.includes(:story_owner, :user_assigned, :story_assigned).joins(:project).where(projects: {id: params[:projectId]}).where(story_owner_id: current_user.id).where.not(story_state: "Finished")
+
+    @user_assigned_stories = Story.includes(:story_owner, :user_assigned, :story_assigned)
+      .joins(:project, :story_assigned)
+      .where(projects: {id: params[:projectId]})
+      .where(assigned_stories: {assigned_user_id: current_user.id}).where.not(story_state: "Finished")
+
     render :index
   end
 
