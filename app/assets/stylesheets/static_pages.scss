@@ -40,6 +40,7 @@ body, html {
   // justify-content: 
 }
 
+#signup-login, 
 #nav-bar-items {
   height: 4%;
   display: inline-flex;
@@ -82,15 +83,6 @@ body, html {
   transition: all 0.3s 0s ease-in-out;
 }
 
-
-#signup-login {
-  position: absolute;
-  // flex-direction: column;
-  z-index: 1;
-  top: -2.4%;
-  right: 5%;
-}
-
 #signup-login button {
   font-size: 16px;
   letter-spacing: 2px;
@@ -98,8 +90,8 @@ body, html {
   background-color: rgba(228, 159, 55, 0.911);
   color: #fff;
   padding: 4px 2px;
-  margin-top: 12px;
-  margin-right: 5px;
+  // margin-top: 12px;
+  // margin-right: 5px;
   border-radius: 4px;
   text-align: center;
   border: 0px;

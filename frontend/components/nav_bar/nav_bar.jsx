@@ -1,6 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
+import LogInSignUpContainer from '../user_auth/login_signup_container'
+
 
 class NavBar extends React.Component {
   
@@ -34,6 +36,7 @@ class NavBar extends React.Component {
         {/* search bar for projects on dashboard page and stories on projects page*/}
         {buttons}
       </div>
+      <LogInSignUpContainer />
     </header>
     )
   }

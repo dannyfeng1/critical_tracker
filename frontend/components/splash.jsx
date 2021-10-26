@@ -1,10 +1,8 @@
 import React from 'react';
-import LogInSignUpContainer from '../components/user_auth/login_signup_container'
 
 const SplashPage = props => {
   return (
     <div id="splash-page">
-      <LogInSignUpContainer/>
       <div id="important-splash">
         <div>Critical Tracker is changing how teams build software—one story at a time.</div>
         <img src="https://assets.pivotaltracker.com/marketing_assets/shared_home/homepage_1-5a09ffa185d33da56aa911984a59e593f9fa25d5e2df4e7d06e796e85e121d3d.svg" alt="" />
