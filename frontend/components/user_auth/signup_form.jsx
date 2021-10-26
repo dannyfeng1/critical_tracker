@@ -13,6 +13,7 @@ class SignUpForm extends React.Component {
       last_name: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   handleSubmit(e) {
@@ -27,6 +28,13 @@ class SignUpForm extends React.Component {
 
   update(field) {
     return e => this.setState({[field]: e.currentTarget.value})
+  }
+
+  demoLogin() {
+    this.props.login({
+      username: "Demo_User",
+      password: "demo123"
+    });
   }
 
   render() {
@@ -44,7 +52,7 @@ class SignUpForm extends React.Component {
             {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
           </ul>
           <button>Sign Up</button>
-          <button onClick={() => this.props.history.push("/demo")}>Demo</button>
+          <button onClick={this.demoLogin}>Demo</button>
           <Link to="/login">Log In</Link>
         </form>
       </div>

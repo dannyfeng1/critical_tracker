@@ -7,7 +7,7 @@ const LogInSignUp = props => {
       <div id="signup-login">
         <button onClick={() => props.history.push("/signup")}>Sign Up</button>
         <button onClick={() => props.history.push("/login")}>Log In</button>
-        <button onClick={() => props.history.push("/demo")}>Demo</button>
+        {/* <button onClick={() => props.history.push("/demo")}>Demo</button> */}
       </div>
     )
   } else return null

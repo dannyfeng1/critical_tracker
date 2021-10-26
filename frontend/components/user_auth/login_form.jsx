@@ -7,6 +7,7 @@ class LogInForm extends React.Component {
     super(props);
     this.state = this.props.userForm;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   handleSubmit(e) {
@@ -23,6 +24,13 @@ class LogInForm extends React.Component {
     this.props.clearErrors();
   }
 
+  demoLogin() {
+    this.props.login({
+      username: "Demo_User",
+      password: "demo123"
+    });
+  }
+
 
   render() {
     let { username, password} = this.state;
@@ -37,7 +45,7 @@ class LogInForm extends React.Component {
             {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
           </ul>
           <button>Log In</button>
-          <button onClick={() => this.props.history.push("/demo")}>Demo</button>
+          <button onClick={this.demoLogin}>Demo</button>
           <Link to="/signup">Sign Up</Link>
         </form>
       </div>
