@@ -2,43 +2,51 @@ import React from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import Container from './container';
 import { connect } from "react-redux";
+import styled from 'styled-components'
 
+const StoriesContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    height: 86.4vh;
+    width: 85vw;
+    justify-content: flex-start;
+`;
 const mapStateToProps = state => ({
     backlog: state.entities.stories.backlog,
     icebox: state.entities.stories.icebox,
     myWork: state.entities.stories.myWork,
     finished: state.entities.stories.finished,
-    allStories: state.entities.stories,
+    // allStories: state.entities.stories,
 })
 // props available: currentUser, projectId, presence for each container
 
 class DndView extends React.Component {
-    componentDidMount() {
-        let { backlog, icebox, myWork, finished, allStories } = this.props;
-
-        this.state = {
-            stories: {
-                allStories
-            },
-            containers: {
-                'Backlog': {
-                    id: "Backlog",
-                    storyIds: Object.keys(backlog)
+    componentDidUpdate(prevProps) {
+        if (this.props !== prevProps) {
+            let { backlog, icebox, myWork, finished } = this.props;
+            const stories = Object.assign({}, backlog, icebox, myWork, finished)
+            this.setState({
+                stories,
+                containers: {
+                    backlog: {
+                        id: "Backlog",
+                        storyIds: Object.keys(backlog)
+                    },
+                    icebox: {
+                        id: "Icebox",
+                        storyIds: Object.keys(icebox)
+                    },
+                    myWork: {
+                        id: "MyWork",
+                        storyIds: Object.keys(myWork)
+                    },
+                    finished: {
+                        id: "Finished",
+                        storyIds: Object.keys(finished)
+                    }
                 },
-                'Icebox': {
-                    id: "Icebox",
-                    storyIds: Object.keys(icebox)
-                },
-                'MyWork': {
-                    id: "MyWork",
-                    storyIds: Object.keys(myWork)
-                },
-                'Finished': {
-                    id: "Finished",
-                    storyIds: Object.keys(finished)
-                }
-            },
-            containerOrder: ['backlog', 'icebox', 'myWork', 'finished']
+                containerOrder: ['myWork', 'backlog', 'icebox', 'finished']
+            })
         }
     }
 
@@ -56,21 +64,21 @@ class DndView extends React.Component {
           return;
         }
     
-        const column = this.state.columns[source.droppableId];
-        const newTaskIds = Array.from(column.taskIds);
-        newTaskIds.splice(source.index, 1);
-        newTaskIds.splice(destination.index, 0, draggableId);
+        const container = this.state.containers[source.droppableId];
+        const newStoryIds = Array.from(container.storyIds);
+        newStoryIds.splice(source.index, 1);
+        newStoryIds.splice(destination.index, 0, draggableId);
     
-        const newColumn = {
-          ...column,
-          taskIds: newTaskIds,
+        const newContainer = {
+          ...container,
+          storyIds: newStoryIds,
         };
     
         const newState = {
           ...this.state,
-          columns: {
-            ...this.state.columns,
-            [newColumn.id]: newColumn,
+          containers: {
+            ...this.state.containers,
+            [newContainer.id]: newContainer,
           },
         };
     
@@ -78,14 +86,18 @@ class DndView extends React.Component {
     };
 
     render() {
+        if (!this.state) return null;
+        // console.log(this.state)
+        // console.log(this.props)
         return (
             <DragDropContext onDragEnd={this.onDragEnd}>
-                {this.state.containerOrder.map(containerId => {
-                const container = this.state.containers[containerId];
-                const stories = container.storyIds.map(storyId => this.state.stories[storyId]);
-
-                return <Container key={container.id} container={container} stories={stories} />;
-                })}
+                <StoriesContainer id="stories-container">
+                    {this.state.containerOrder.map(containerId => {
+                    const container = this.state.containers[containerId];
+                    const stories = container.storyIds.map(storyId => this.state.stories[storyId]);    
+                    return <Container key={container.id} container={container} stories={stories} />;
+                    })}
+                </StoriesContainer>
             </DragDropContext>
         )
     }

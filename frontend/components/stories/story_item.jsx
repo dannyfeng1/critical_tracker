@@ -63,29 +63,43 @@ class StoryItem extends React.Component {
     if (this.props.formType === "MyWork") {
       storyState === "Unstarted" ? taskButton = (<button className="start" onClick={this.startStory}>Start</button>) : taskButton = (<button className="finish" onClick={this.finishStory}>Finish</button>)
     }
+    // console.log(this.props);
 
     if (this.state.details === false ) {
       return (
-        <div onClick={this.toggleDetails} className={currentUser === author ? `story-item-container current-user ${formType}` : `story-item-container ${formType}`}>
-          <div className="story-item" >
-            <h1>{storyType + ":" + ` ${title}`}</h1>
+        <Draggable draggableId={this.props.story.id.toString()} index={this.props.index}>
+          {provided => (
+            <div>
+            <div 
+              onClick={this.toggleDetails} className={currentUser === author ? `story-item-container current-user ${formType}` : `story-item-container ${formType}`}
+              {...provided.draggableProps}
+              {...provided.dragHandleProps}
+              ref={provided.innerRef}
+            >
+              <div className="story-item" >
+                <h1>{storyType + ":" + ` ${title}`}</h1>
+              </div>
+              {assignmentButton}
+              {taskButton}
+            </div>
           </div>
-          {assignmentButton}
-          {taskButton}
-        </div>
+          )}
+        </Draggable>
       )
     } else {
       return (
-        <Draggable draggableId={this.props.story.id} index={this.props.index}>
+        <Draggable draggableId={this.props.story.id.toString()} index={this.props.index}>
           {provided => (
-            <div 
-            className="story-item-card"
-            {...provided.draggableProps}
-            {...provided.dragHandleProps}
-            innerRef={provided.innerRef}
-            >
-              <button className="collapse" onClick={this.toggleDetails}>Collapse</button>
-              <EditStoryFormContainer formType={this.props.formType} story={this.props.story}/>
+            <div>
+              <div 
+              className="story-item-card"
+              {...provided.draggableProps}
+              {...provided.dragHandleProps}
+              ref={provided.innerRef}
+              >
+                <button className="collapse" onClick={this.toggleDetails}>Collapse</button>
+                <EditStoryFormContainer formType={this.props.formType} story={this.props.story}/>
+              </div>
             </div>
           )}
         </Draggable>

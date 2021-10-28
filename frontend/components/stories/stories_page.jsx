@@ -3,6 +3,7 @@ import BacklogContainer from './backlog_container';
 import DoneStoriesContainer from './done_stories_container';
 import IceboxContainer from './ice_box_container';
 import MyWorkContainer from './myWork_container';
+import DNDView from '../drag_and_drop/story_view_page'
 
 class StoriesPage extends React.Component {
   constructor(props){
@@ -56,12 +57,14 @@ class StoriesPage extends React.Component {
             </li>
           </ul>
         </div>
-        <div id="stories-containers">
+        <DNDView/>
+        {/* <div id="stories-containers">
           <MyWorkContainer currentUser={currentUser} projectId={projectId} presence={myWork} />
           <BacklogContainer currentUser={currentUser} projectId={projectId} presence={backlog} />
           <IceboxContainer currentUser={currentUser} projectId={projectId} presence={icebox} />
           <DoneStoriesContainer currentUser={currentUser} projectId={projectId} presence={doneStories} />
-        </div>
+        </div> */}
+
       </div>
     )
   }
