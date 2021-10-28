@@ -1,5 +1,6 @@
 import React from 'react';
 import EditStoryFormContainer from './forms/edit_story_form_container';
+import { Draggable } from 'react-beautiful-dnd';
 
 class StoryItem extends React.Component {
   constructor(props) {
@@ -75,10 +76,19 @@ class StoryItem extends React.Component {
       )
     } else {
       return (
-        <div className="story-item-card">
-          <button className="collapse" onClick={this.toggleDetails}>Collapse</button>
-          <EditStoryFormContainer formType={this.props.formType} story={this.props.story}/>
-        </div>
+        <Draggable draggableId={this.props.story.id} index={this.props.index}>
+          {provided => (
+            <div 
+            className="story-item-card"
+            {...provided.draggableProps}
+            {...provided.dragHandleProps}
+            innerRef={provided.innerRef}
+            >
+              <button className="collapse" onClick={this.toggleDetails}>Collapse</button>
+              <EditStoryFormContainer formType={this.props.formType} story={this.props.story}/>
+            </div>
+          )}
+        </Draggable>
       )
     }
   }
