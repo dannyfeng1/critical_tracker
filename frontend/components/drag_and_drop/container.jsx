@@ -33,6 +33,7 @@ export default class Container extends React.Component {
                           ref={provided.innerRef}
                           >
                             <StoryItemContainer formType={this.props.formType} key={story.id} story={story} index={index} />
+                            {provided.placeholder}
                           </div>
                         )}
 

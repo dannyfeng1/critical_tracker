@@ -45,7 +45,6 @@ class StoryItem extends React.Component {
   render() {
     let {storyType, title, assignedUser, storyState, author } = this.props.story;
     let { formType, currentUser } = this.props
-    console.log(this.props);
 
     let assignmentButton = null;
     if (!assignedUser) {
