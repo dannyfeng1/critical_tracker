@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import DoneStories from "./done_stories";
 
 const mapStateToProps = (state, ownProps) => ({
-  finished: Object.values(state.entities.stories.finished),
+  finished: state.entities.stories.finished,
   currentUser: ownProps.currentUser,
   projectId: ownProps.projectId,
   presence: ownProps.presence

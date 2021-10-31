@@ -4,7 +4,6 @@ import { Droppable, Draggable } from 'react-beautiful-dnd';
 import StoryItemContainer from '../stories/story_item_container'
 
 const StoryBox = styled.div`
-    width: 26.5vw;
     margin: 5px;
     margin-top: 5px;
     border-radius: 5px;
@@ -33,7 +32,7 @@ export default class Container extends React.Component {
                           {...provided.dragHandleProps}
                           ref={provided.innerRef}
                           >
-                            <StoryItemContainer key={story.id} story={story} index={index} formType={this.props.container.id}/>
+                            <StoryItemContainer formType={this.props.formType} key={story.id} story={story} index={index} />
                           </div>
                         )}
 
