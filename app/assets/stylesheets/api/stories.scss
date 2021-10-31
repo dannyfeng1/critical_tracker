@@ -60,7 +60,7 @@
       margin: 5px;
       margin-top: 5px;
       border-radius: 5px;
-      overflow: auto;
+      // overflow: auto;
 
       .create-story-buttons {
         padding-top: 1%;
@@ -188,7 +188,7 @@
         padding-bottom: 20px;
 
         .collapse {
-          width: 60px;
+          width: 65px;
           height: 24px;
           background-color: rgb(154, 202, 218);
           opacity: .9;
@@ -197,7 +197,7 @@
           margin-right: 3px;
           margin-top: 10px;
           position: relative;
-          left: 85%;
+          left: 75%;
         }
 
         .collapse:hover {

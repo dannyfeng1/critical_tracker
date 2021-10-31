@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import Icebox from "./icebox";
 
 const mapStateToProps = (state, ownProps) => ({
-  icebox: Object.values(state.entities.stories.icebox),
+  icebox: state.entities.stories.icebox,
   currentUser: ownProps.currentUser,
   projectId: ownProps.projectId,
   presence: ownProps.presence

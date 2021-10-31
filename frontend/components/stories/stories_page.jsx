@@ -18,7 +18,7 @@ class StoriesPage extends React.Component {
 
   update(container) {
     let flag = null;
-    this.state[container] === true? flag = false : flag = true;
+    this.state[container] === true ? flag = false : flag = true;
     this.setState({[container]: flag})
   }
 
@@ -57,13 +57,13 @@ class StoriesPage extends React.Component {
             </li>
           </ul>
         </div>
-        <DNDView/>
-        {/* <div id="stories-containers">
+        {/* <DNDView/> */}
+        <div id="stories-containers">
           <MyWorkContainer currentUser={currentUser} projectId={projectId} presence={myWork} />
           <BacklogContainer currentUser={currentUser} projectId={projectId} presence={backlog} />
           <IceboxContainer currentUser={currentUser} projectId={projectId} presence={icebox} />
           <DoneStoriesContainer currentUser={currentUser} projectId={projectId} presence={doneStories} />
-        </div> */}
+        </div>
 
       </div>
     )

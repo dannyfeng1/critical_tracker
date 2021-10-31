@@ -67,42 +67,20 @@ class StoryItem extends React.Component {
 
     if (this.state.details === false ) {
       return (
-        <Draggable draggableId={this.props.story.id.toString()} index={this.props.index}>
-          {provided => (
-            <div>
-            <div 
-              onClick={this.toggleDetails} className={currentUser === author ? `story-item-container current-user ${formType}` : `story-item-container ${formType}`}
-              {...provided.draggableProps}
-              {...provided.dragHandleProps}
-              ref={provided.innerRef}
-            >
-              <div className="story-item" >
-                <h1>{storyType + ":" + ` ${title}`}</h1>
-              </div>
-              {assignmentButton}
-              {taskButton}
-            </div>
+        <div onClick={this.toggleDetails} className={currentUser === author ? `story-item-container current-user ${formType}` : `story-item-container ${formType}`}>
+          <div className="story-item" >
+            <h1>{storyType + ":" + ` ${title}`}</h1>
           </div>
-          )}
-        </Draggable>
+          {assignmentButton}
+          {taskButton}
+        </div>
       )
     } else {
       return (
-        <Draggable draggableId={this.props.story.id.toString()} index={this.props.index}>
-          {provided => (
-            <div>
-              <div 
-              className="story-item-card"
-              {...provided.draggableProps}
-              {...provided.dragHandleProps}
-              ref={provided.innerRef}
-              >
-                <button className="collapse" onClick={this.toggleDetails}>Collapse</button>
-                <EditStoryFormContainer formType={this.props.formType} story={this.props.story}/>
-              </div>
-            </div>
-          )}
-        </Draggable>
+        <div className="story-item-card">
+          <button className="collapse" onClick={this.toggleDetails}>Collapse</button>
+          <EditStoryFormContainer formType={this.props.formType} story={this.props.story}/>
+        </div>
       )
     }
   }
