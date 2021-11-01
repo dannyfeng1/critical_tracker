@@ -152,8 +152,12 @@
         display: flex;
         justify-content: space-between;
 
+        .story-item {
+          width: 80%
+        }
+
         button {
-          width: 60px;
+          width: 80px;
           height: 24px;
           align-self: center;
           border-radius: 4px;
@@ -187,6 +191,7 @@
         background-color: whitesmoke;
         padding-bottom: 20px;
 
+        
         .collapse {
           width: 65px;
           height: 24px;
@@ -196,9 +201,12 @@
           border-radius: 4px;
           margin-right: 3px;
           margin-top: 10px;
-          position: relative;
-          left: 75%;
         }
+        
+        .collapse-div {
+          display: flex;
+          justify-content: flex-end;
+        };
 
         .collapse:hover {
           // transform: scale(1.05, 1);

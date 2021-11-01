@@ -50,7 +50,7 @@ class StoryItem extends React.Component {
     if (!assignedUser) {
       if (formType === "Icebox") {
         assignmentButton = (
-          <button onClick={(id) =>this.props.iceboxAssign(id)}>Accept</button>
+          <button onClick={(id) =>this.props.backlogAssign(id)}>To Backlog</button>
         )
       } else if (formType === "Backlog") {
         assignmentButton = (
@@ -78,7 +78,9 @@ class StoryItem extends React.Component {
     } else {
       return (
         <div className="story-item-card">
-          <button className="collapse" onClick={this.toggleDetails}>Collapse</button>
+          <div className="collapse-div">
+            <button className="collapse" onClick={this.toggleDetails}>Collapse</button>
+          </div>
           <EditStoryFormContainer formType={this.props.formType} story={this.props.story}/>
         </div>
       )
