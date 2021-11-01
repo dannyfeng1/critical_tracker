@@ -11,7 +11,7 @@ BackEnd | Frontend
 Ruby on Rails | React
 PostgreSQL | Redux
 jbuilder | JavaScript ES6
- | React-Beautiful-DND
+- | React-Beautiful-DND
 
 ## Key Features
 
