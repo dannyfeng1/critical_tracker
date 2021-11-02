@@ -1,6 +1,5 @@
 import React from 'react';
 import EditStoryFormContainer from './forms/edit_story_form_container';
-import { Draggable } from 'react-beautiful-dnd';
 
 class StoryItem extends React.Component {
   constructor(props) {
@@ -11,7 +10,7 @@ class StoryItem extends React.Component {
     this.toggleDetails = this.toggleDetails.bind(this);
     this.startStory = this.startStory.bind(this);
     this.finishStory = this.finishStory.bind(this);
-
+    this.moveToBacklog = this.moveToBacklog.bind(this);
   }
 
   toggleDetails() {
@@ -42,15 +41,23 @@ class StoryItem extends React.Component {
     })
   }
 
+  moveToBacklog() {
+    let { story, updateStory } = this.props;
+    updateStory({
+      id: story.id,
+      priority: true
+    })
+  }
+
   render() {
-    let {storyType, title, assignedUser, storyState, author } = this.props.story;
+    let {id, storyType, title, assignedUser, storyState, author } = this.props.story;
     let { formType, currentUser } = this.props
 
     let assignmentButton = null;
     if (!assignedUser) {
       if (formType === "Icebox") {
         assignmentButton = (
-          <button onClick={(id) =>this.props.backlogAssign(id)}>To Backlog</button>
+          <button onClick={this.moveToBacklog}>To Backlog</button>
         )
       } else if (formType === "Backlog") {
         assignmentButton = (
