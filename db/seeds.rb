@@ -8,6 +8,7 @@
 AssignedStory.destroy_all
 Story.destroy_all
 ProjectTeam.destroy_all
+ProjectOrder.destroy_all
 Project.destroy_all
 User.destroy_all
 
@@ -19,6 +20,9 @@ demo_proj = Project.create(title: "Demo Project", description: "Test out app her
 
 ProjectTeam.create(project_id: crit_tracker.id, user_id: demo_user.id)
 ProjectTeam.create(project_id: demo_proj.id, user_id: demo_user.id)
+
+ProjectOrder.create(project_id: crit_tracker.id)
+ProjectOrder.create(project_id: demo_proj.id)
 
 ProjectTeam.create(project_id: crit_tracker.id, user_id: demo_teammate.id)
 

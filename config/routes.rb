@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     resources :project_teams, only: [:show, :create, :destroy]
     resources :stories, only: [:index, :create, :destroy, :update]
     resources :assigned_stories, only: [:create]
+    resources :project_order, only: [:show, :update]
   end
 end
