@@ -11,6 +11,7 @@ BackEnd | Frontend
 Ruby on Rails | React
 PostgreSQL | Redux
 jbuilder | JavaScript ES6
+--- | React-Beautiful-DND
 
 ## Key Features
 
@@ -33,6 +34,7 @@ jbuilder | JavaScript ES6
 * Users can accept stories that have not been assigned.
 * Once accepted, users can mark stories as started or finished as they work on them.
 * Users can edit and delete their own stories
+* Users can reorder a project's stories by dragging and dropping stories into desire positions.
 ```
   def update
     @story = Story.find_by(id: params[:story][:id])
@@ -49,5 +51,5 @@ jbuilder | JavaScript ES6
 Updating a story with a new user assignment would destroy the old one if present and create a new assignment relation between a story and a user.
 
 ### Future Directions
-* Drag and drop prioritization.
+
 * Live refresh for responsive team environment.
