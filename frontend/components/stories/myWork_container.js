@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import MyWork from "./myWork";
 
 const mapStateToProps = (state, ownProps) => ({
-  myWork: Object.values(state.entities.stories.myWork),
+  myWork: state.entities.stories.myWork,
   currentUser: ownProps.currentUser,
   projectId: ownProps.projectId,
   presence: ownProps.presence

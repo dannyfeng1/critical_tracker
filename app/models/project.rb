@@ -18,5 +18,9 @@ class Project < ApplicationRecord
   has_many :team_members, 
     through: :users,
     source: :member
+
+  has_one :project_order,
+    foreign_key: :project_id,
+    class_name: "ProjectOrder"
   
 end

@@ -8,6 +8,7 @@
 AssignedStory.destroy_all
 Story.destroy_all
 ProjectTeam.destroy_all
+ProjectOrder.destroy_all
 Project.destroy_all
 User.destroy_all
 
@@ -19,6 +20,9 @@ demo_proj = Project.create(title: "Demo Project", description: "Test out app her
 
 ProjectTeam.create(project_id: crit_tracker.id, user_id: demo_user.id)
 ProjectTeam.create(project_id: demo_proj.id, user_id: demo_user.id)
+
+ProjectOrder.create(project_id: crit_tracker.id)
+ProjectOrder.create(project_id: demo_proj.id)
 
 ProjectTeam.create(project_id: crit_tracker.id, user_id: demo_teammate.id)
 
@@ -68,16 +72,12 @@ Story.create(title: "Loading icon modal",
 a = Story.create(title: "Project Search Bar", 
   description: "Small search bar on dashboard that filters by project name.", 
   story_type: "Feature", story_state: "Unstarted", 
-  priority: false, points: 1, story_owner_id: demo_user.id, project_id: crit_tracker.id)
+  priority: false, story_owner_id: demo_user.id, points: 1, project_id: crit_tracker.id)
 
 b = Story.create(title: "Change the font size", 
   description: "Find a better font for forms.", 
   story_type: "Chore", story_state: "Unstarted", 
-  priority: false, points: 1, story_owner_id: demo_user.id, project_id: crit_tracker.id)
-
-AssignedStory.create(assigned_user_id: demo_user.id, story_id: a.id)
-AssignedStory.create(assigned_user_id: demo_user.id, story_id: b.id)
-
+  priority: false, story_owner_id: demo_user.id, points: 1, project_id: crit_tracker.id)
   
 Story.create(title: "Errors Not Clearing", 
   description: "Errors should clear on dismount of forms.", 
@@ -97,4 +97,4 @@ Story.create(title: "More Story Error Reducers",
 Story.create(title: "Round them corners", 
   description: "Application is too blocky. Please round buttons and containers", 
   story_type: "Chore", story_state: "Unstarted", 
-  priority: false, points: 0, story_owner_id: demo_user.id, project_id: crit_tracker.id)
+  priority: false, story_owner_id: demo_user.id, points: 0, project_id: crit_tracker.id)

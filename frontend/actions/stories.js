@@ -8,6 +8,7 @@ export const CLEAR_STORY_ERRORS = "CLEAR_STORY_ERRORS";
 export const RECEIVE_BACKLOG_ASSIGNMENT = "RECEIVE_BACKLOG_ASSIGNMENT"
 export const RECEIVE_ICEBOX_ASSIGNMENT = "RECEIVE_ICEBOX_ASSIGNMENT"
 export const RECEIVE_MY_WORK_ASSIGNMENT = "RECEIVE_MY_WORK_ASSIGNMENT";
+export const RECEIVE_STORY_ORDER = "RECEIVE_STORY_ORDER";
 
 const receivedStories = stories => ({
   type: RECEIVE_ALL_STORIES,
@@ -87,4 +88,19 @@ export const assignIceboxStory = storyId => dispatch => (
 export const assignToSelf = storyId => dispatch => (
   StoriesAPI.assignStory(storyId)
     .then(story => dispatch(receivedMyWorkAssignment(story)))
+)
+
+const receivedStoryOrder = order => ({
+  type: RECEIVE_STORY_ORDER,
+  order
+})
+
+export const fetchStoryOrder = projectId => dispatch => (
+  StoriesAPI.fetchStoryOrder(projectId)
+    .then(order => dispatch(receivedStoryOrder(order)))
+)
+
+export const updateStoryOrder = storyOrder => dispatch => (
+  StoriesAPI.updateStoryOrder(storyOrder)
+    .then(order => dispatch(receivedStoryOrder(order)))
 )

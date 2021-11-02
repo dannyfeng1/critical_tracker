@@ -60,7 +60,7 @@
       margin: 5px;
       margin-top: 5px;
       border-radius: 5px;
-      overflow: auto;
+      // overflow: auto;
 
       .create-story-buttons {
         padding-top: 1%;
@@ -152,9 +152,13 @@
         display: flex;
         justify-content: space-between;
 
+        .story-item {
+          width: 80%
+        }
+
         button {
-          width: 60px;
-          height: 24px;
+          width: 80px;
+          min-height: 24px;
           align-self: center;
           border-radius: 4px;
           border-style: none;
@@ -187,8 +191,9 @@
         background-color: whitesmoke;
         padding-bottom: 20px;
 
+        
         .collapse {
-          width: 60px;
+          width: 65px;
           height: 24px;
           background-color: rgb(154, 202, 218);
           opacity: .9;
@@ -196,9 +201,12 @@
           border-radius: 4px;
           margin-right: 3px;
           margin-top: 10px;
-          position: relative;
-          left: 85%;
         }
+        
+        .collapse-div {
+          display: flex;
+          justify-content: flex-end;
+        };
 
         .collapse:hover {
           // transform: scale(1.05, 1);

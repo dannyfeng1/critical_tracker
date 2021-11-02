@@ -10,7 +10,7 @@ class StoryItem extends React.Component {
     this.toggleDetails = this.toggleDetails.bind(this);
     this.startStory = this.startStory.bind(this);
     this.finishStory = this.finishStory.bind(this);
-
+    this.moveToBacklog = this.moveToBacklog.bind(this);
   }
 
   toggleDetails() {
@@ -23,7 +23,8 @@ class StoryItem extends React.Component {
     }
   }
 
-  finishStory() {
+  finishStory(e) {
+    e.stopPropagation();
     let { story, updateStory, currentUser } = this.props;
     updateStory({
       id: story.id,
@@ -32,7 +33,8 @@ class StoryItem extends React.Component {
     })
   }
 
-  startStory() {
+  startStory(e) {
+    e.stopPropagation();
     let { story, updateStory, currentUser } = this.props;
     updateStory({
       id: story.id,
@@ -41,15 +43,24 @@ class StoryItem extends React.Component {
     })
   }
 
+  moveToBacklog(e) {
+    e.stopPropagation();
+    let { story, updateStory } = this.props;
+    updateStory({
+      id: story.id,
+      priority: true
+    })
+  }
+
   render() {
-    let {storyType, title, assignedUser, storyState, author } = this.props.story;
+    let {id, storyType, title, assignedUser, storyState, author } = this.props.story;
     let { formType, currentUser } = this.props
 
     let assignmentButton = null;
     if (!assignedUser) {
       if (formType === "Icebox") {
         assignmentButton = (
-          <button onClick={(id) =>this.props.iceboxAssign(id)}>Accept</button>
+          <button onClick={this.moveToBacklog}>To Backlog</button>
         )
       } else if (formType === "Backlog") {
         assignmentButton = (
@@ -62,6 +73,7 @@ class StoryItem extends React.Component {
     if (this.props.formType === "MyWork") {
       storyState === "Unstarted" ? taskButton = (<button className="start" onClick={this.startStory}>Start</button>) : taskButton = (<button className="finish" onClick={this.finishStory}>Finish</button>)
     }
+    // console.log(this.props);
 
     if (this.state.details === false ) {
       return (
@@ -76,7 +88,9 @@ class StoryItem extends React.Component {
     } else {
       return (
         <div className="story-item-card">
-          <button className="collapse" onClick={this.toggleDetails}>Collapse</button>
+          <div className="collapse-div">
+            <button className="collapse" onClick={this.toggleDetails}>Collapse</button>
+          </div>
           <EditStoryFormContainer formType={this.props.formType} story={this.props.story}/>
         </div>
       )

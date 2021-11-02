@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { fetchProjectStories } from "../../actions/stories";
+import { fetchProjectStories, fetchStoryOrder } from "../../actions/stories";
 import StoriesPage from "./stories_page";
 
 const mapStateToProps = (state, ownProps) => ({
@@ -10,6 +10,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchStories: (projectId) => dispatch(fetchProjectStories(projectId)),
+  fetchStoryOrder: (projectId) => dispatch(fetchStoryOrder(projectId))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(StoriesPage);

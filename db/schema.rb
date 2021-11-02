@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_30_212036) do
+ActiveRecord::Schema.define(version: 2021_11_02_032542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 2021_09_30_212036) do
     t.datetime "updated_at", null: false
     t.index ["assigned_user_id"], name: "index_assigned_stories_on_assigned_user_id"
     t.index ["story_id"], name: "index_assigned_stories_on_story_id"
+  end
+
+  create_table "project_orders", force: :cascade do |t|
+    t.integer "project_id", null: false
+    t.text "backlog", default: [], array: true
+    t.text "icebox", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "project_teams", force: :cascade do |t|

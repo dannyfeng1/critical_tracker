@@ -7,7 +7,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  iceboxAssign: () => dispatch(assignIceboxStory(ownProps.story.id)),
+  // iceboxAssign: () => dispatch(assignIceboxStory(ownProps.story.id)),
   backlogAssign: () => dispatch(assignBacklogStory(ownProps.story.id)),
   updateStory: (story) => dispatch(updateStory(story))
 })

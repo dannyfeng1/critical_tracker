@@ -36,3 +36,18 @@ export const assignStory = storyId => (
     data: { storyId }
   })
 )
+
+export const fetchStoryOrder = projectId => (
+  $.ajax({
+    method: "GET",
+    url: `/api/project_order/${projectId}`
+  })
+)
+
+export const updateStoryOrder = project_order => (
+  $.ajax({
+    method: "PATCH",
+    url: `/api/project_order/${project_order.id}`,
+    data: { project_order }
+  })
+)

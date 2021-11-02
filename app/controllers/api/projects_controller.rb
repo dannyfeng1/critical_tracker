@@ -10,6 +10,7 @@ class Api::ProjectsController < ApplicationController
     @project = Project.new(project_params)
     if @project.save
       ProjectTeam.create(user_id: current_user.id, project_id: @project.id)
+      ProjectOrder.create(project_id: @project.id)
       render :show
     else
       render json: @project.errors.full_messages, status: 401
