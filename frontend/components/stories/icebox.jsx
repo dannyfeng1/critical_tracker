@@ -6,17 +6,17 @@ import Container from '../drag_and_drop/container';
 class Icebox extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      createForm: false,
-      stories: this.props.icebox,
-      containers: {
-        icebox: {
-          id: "icebox",
-          storyIds: Object.keys(this.props.icebox)
-        },
-      },
-      containerOrder: ["icebox"]
-    };
+    // this.state = {
+    //   createForm: false,
+    //   stories: this.props.icebox,
+    //   containers: {
+    //     icebox: {
+    //       id: "icebox",
+    //       storyIds: Object.keys(this.props.icebox)
+    //     },
+    //   },
+    //   containerOrder: ["icebox"]
+    // };
   }
 
   componentDidUpdate(prevProps) {
@@ -27,7 +27,7 @@ class Icebox extends React.Component {
         containers: {
           icebox: {
             id: "icebox",
-            storyIds: Object.keys(this.props.icebox)
+            storyIds: this.props.storyOrder.icebox.length === 0 ? Object.keys(this.props.icebox) : this.props.storyOrder.icebox
           }
         },
         containerOrder: ["icebox"]
@@ -66,12 +66,15 @@ class Icebox extends React.Component {
         [newContainer.id]: newContainer,
       },
     };
-
+    this.props.updateOrder({
+      id: this.props.storyOrder.id,
+      icebox: newState.containers.icebox.storyIds
+    })
     this.setState(newState);
   };
 
   render() {
-    if (!this.props.presence) {
+    if (!this.props.presence || !this.state) {
       return null;
     }
 

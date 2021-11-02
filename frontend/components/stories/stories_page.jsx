@@ -3,7 +3,6 @@ import BacklogContainer from './backlog_container';
 import DoneStoriesContainer from './done_stories_container';
 import IceboxContainer from './ice_box_container';
 import MyWorkContainer from './myWork_container';
-import DNDView from '../drag_and_drop/story_view_page'
 
 class StoriesPage extends React.Component {
   constructor(props){
@@ -23,6 +22,7 @@ class StoriesPage extends React.Component {
   }
 
   componentDidMount() {
+    this.props.fetchStoryOrder(this.props.projectId)
     this.props.fetchStories(this.props.projectId);
   }
 

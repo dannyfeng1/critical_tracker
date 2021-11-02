@@ -19,6 +19,6 @@ class Api::ProjectOrderController < ApplicationController
 
     private
     def project_order_params
-        params.require(:project_order).permit(:id, :backlog, :icebox)
+        params.require(:project_order).permit(:id, {:backlog => [], :icebox => []})
     end
 end

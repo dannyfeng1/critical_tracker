@@ -6,17 +6,17 @@ import Container from '../drag_and_drop/container';
 class Backlog extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      createForm: false,
-      stories: this.props.backlog,
-      containers: {
-        backlog: {
-          id: "backlog",
-          storyIds: Object.keys(this.props.backlog)
-        }
-      },
-      containerOrder: ["backlog"]
-    };
+    // this.state = {
+    //   createForm: false,
+    //   stories: this.props.backlog,
+    //   containers: {
+    //     backlog: {
+    //       id: "backlog",
+    //       storyIds: this.props.storyOrder.backlog 
+    //     }
+    //   },
+    //   containerOrder: ["backlog"]
+    // };
   }
 
   componentDidUpdate(prevProps) {
@@ -27,7 +27,7 @@ class Backlog extends React.Component {
         containers: {
           backlog: {
             id: "backlog",
-            storyIds: Object.keys(this.props.backlog)
+            storyIds: this.props.storyOrder.backlog.length === 0 ? Object.keys(this.props.backlog) : this.props.storyOrder.backlog 
           }
         },
         containerOrder: ["backlog"]
@@ -67,11 +67,15 @@ class Backlog extends React.Component {
       },
     };
 
+    this.props.updateOrder({
+      id: this.props.storyOrder.id,
+      backlog: newState.containers.backlog.storyIds
+    })
     this.setState(newState);
   };
 
   render() {
-    if (!this.props.presence) {
+    if (!this.props.presence || !this.state) {
       return null;
     }
 
@@ -81,8 +85,10 @@ class Backlog extends React.Component {
         <BacklogFormContainer projectId={projectId}/>
         <DragDropContext onDragEnd={this.onDragEnd}>
           {this.state.containerOrder.map(containerId => {
+
           const container = this.state.containers[containerId];
           const stories = container.storyIds.map(storyId => this.state.stories[storyId]);    
+
           return <Container key={container.id} container={container} stories={stories} formType="Backlog" />;
           })}
         </DragDropContext>

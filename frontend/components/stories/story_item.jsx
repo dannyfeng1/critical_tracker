@@ -23,7 +23,8 @@ class StoryItem extends React.Component {
     }
   }
 
-  finishStory() {
+  finishStory(e) {
+    e.stopPropagation();
     let { story, updateStory, currentUser } = this.props;
     updateStory({
       id: story.id,
@@ -32,7 +33,8 @@ class StoryItem extends React.Component {
     })
   }
 
-  startStory() {
+  startStory(e) {
+    e.stopPropagation();
     let { story, updateStory, currentUser } = this.props;
     updateStory({
       id: story.id,
@@ -41,7 +43,8 @@ class StoryItem extends React.Component {
     })
   }
 
-  moveToBacklog() {
+  moveToBacklog(e) {
+    e.stopPropagation();
     let { story, updateStory } = this.props;
     updateStory({
       id: story.id,
