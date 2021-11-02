@@ -27,7 +27,8 @@ class Icebox extends React.Component {
         containers: {
           icebox: {
             id: "icebox",
-            storyIds: this.props.storyOrder.icebox.length === 0 ? Object.keys(this.props.icebox) : this.props.storyOrder.icebox
+            storyIds: this.props.storyOrder.icebox.length !== Object.keys(this.props.icebox).length ? 
+            Object.keys(this.props.icebox) : this.props.storyOrder.icebox
           }
         },
         containerOrder: ["icebox"]

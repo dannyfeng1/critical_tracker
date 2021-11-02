@@ -27,7 +27,8 @@ class Backlog extends React.Component {
         containers: {
           backlog: {
             id: "backlog",
-            storyIds: this.props.storyOrder.backlog.length === 0 ? Object.keys(this.props.backlog) : this.props.storyOrder.backlog 
+            storyIds: this.props.storyOrder.backlog.length !== Object.keys(this.props.backlog).length ? 
+            Object.keys(this.props.backlog) : this.props.storyOrder.backlog 
           }
         },
         containerOrder: ["backlog"]
