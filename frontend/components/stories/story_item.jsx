@@ -13,7 +13,8 @@ class StoryItem extends React.Component {
     this.moveToBacklog = this.moveToBacklog.bind(this);
   }
 
-  toggleDetails() {
+  toggleDetails(e) {
+    e.stopPropagation();
     this.state.details ? this.setState({details: false}) : this.setState({details: true})
   }
 
@@ -79,7 +80,7 @@ class StoryItem extends React.Component {
       return (
         <div onClick={this.toggleDetails} className={currentUser === author ? `story-item-container current-user ${formType}` : `story-item-container ${formType}`}>
           <div className="story-item" >
-            <h1>{storyType + ":" + ` ${title}`}</h1>
+            <h1>{storyType + ":" + ` ${title.slice(0, 40)}`}</h1>
           </div>
           {assignmentButton}
           {taskButton}

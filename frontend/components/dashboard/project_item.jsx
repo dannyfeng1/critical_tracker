@@ -16,7 +16,7 @@ class ProjectItem extends React.Component {
     return (
       <div className="project-item">
         <Link to={`/projects/${project.id}`}>
-          <h2>{project.title}</h2>
+          <h2>{project.title.slice(0, 40)}</h2>
         </Link>
         <p className="project-buttons">
           <Link to={`/projects/${project.id}/members`} >

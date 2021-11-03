@@ -8,6 +8,7 @@ const StoryBox = styled.div`
     margin-top: 5px;
     border-radius: 5px;
     overflow: auto;
+    max-height: 80vh;
 `;
 
 export default class Container extends React.Component {
@@ -17,7 +18,7 @@ export default class Container extends React.Component {
     
     return (
       <div>
-        <Droppable droppableId={this.props.container.id}>
+        <Droppable className="scrollable" droppableId={this.props.container.id}>
           {provided => (
             <StoryBox>
                 <div className="story-list"
