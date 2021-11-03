@@ -21,14 +21,19 @@ class Icebox extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.icebox !== this.props.icebox) {
+      let newIds = Object.keys(this.props.icebox);
+      if (this.props.storyOrder.icebox.length === Object.keys(this.props.icebox).length) {
+        if (this.props.storyOrder.icebox.every(ele => Object.keys(this.props.icebox).includes(ele))) {
+          newIds = this.props.storyOrder.icebox
+        }
+      }
       this.setState({
         createForm: false,
         stories: this.props.icebox,
         containers: {
           icebox: {
             id: "icebox",
-            storyIds: this.props.storyOrder.icebox.length !== Object.keys(this.props.icebox).length ? 
-            Object.keys(this.props.icebox) : this.props.storyOrder.icebox
+            storyIds: newIds
           }
         },
         containerOrder: ["icebox"]

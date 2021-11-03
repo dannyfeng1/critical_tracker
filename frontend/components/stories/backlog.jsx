@@ -21,14 +21,21 @@ class Backlog extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.backlog !== this.props.backlog) {
+      let newIds = Object.keys(this.props.backlog);
+      if (this.props.storyOrder.backlog.length === Object.keys(this.props.backlog).length) {
+        if (this.props.storyOrder.backlog.every(ele => Object.keys(this.props.backlog).includes(ele))) {
+          newIds = this.props.storyOrder.backlog
+        }
+      }
+      
+
       this.setState({
         createForm: false,
         stories: this.props.backlog,
         containers: {
           backlog: {
             id: "backlog",
-            storyIds: this.props.storyOrder.backlog !== Object.keys(this.props.backlog) ? 
-            Object.keys(this.props.backlog) : this.props.storyOrder.backlog 
+            storyIds: newIds
           }
         },
         containerOrder: ["backlog"]
